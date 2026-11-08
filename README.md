@@ -4,7 +4,7 @@
 
 **一款零依赖、无后端、支持 Android 4.4 的多音源音乐播放器**
 
-[English](README.en.md) · **简体中文** · [在线介绍页](index.html)
+[English](README.en.md) · **简体中文** · [在线介绍页]English](README.en.md) · **简体中文** · [div]English](README.en.md) · **简体中文** · [div](简体中文)
 
 ![version](https://img.shields.io/badge/version-2.3.4-informational)
 ![Android](https://img.shields.io/badge/Android-4.4%2B-3DDC84)
@@ -127,7 +127,7 @@ Muriel 音乐从 Android 4.4（API 19）一路兼容到最新系统，把「多�
 | 网络 | `HttpURLConnection` 自封装（自动解 gzip、跨协议重定向、TLS 1.2 兼容层）；`usesCleartextTraffic=true` |
 | 音频链路 | `MediaPlayer` + 内置本地流代理 `StreamProxy`（`127.0.0.1` 随机端口，把 B站仅 HTTPS 的音频流转成 HTTP 给 4.4 播放，支持 Range 透传） |
 | 频谱链路 | `Visualizer` → `SpectrumCapture` → `SpectrumDsp`（纯 Java FFT / 32 段分频）→ `BeatTrack`（`MediaCodec` 解码节奏表）→ `SpectrumData` 四级优先级 |
-| 质量 | `lint` **0 Error / 0 Fatal**，全量 javac 通过，离线单测 **31/31** |
+|versionhttps://img.shields.io/badge/version-2.3.4-informational在线介绍页https://MurielMax.github.io/MurielMusic/lint` **0 Error / 0 Fatal**，全量 javac 通过，离线单测 **31/31** |
 
 ### 工程取舍
 
@@ -154,7 +154,7 @@ MurielMusic/
     │   ├── StreamProxy.java                # 本地流代理
     │   ├── Downloader / DownloadStore / Store / ImageLoader
     │   ├── NiuWidgetProvider / WidgetUpdater / WidgetArt
-    │   └── Skins / SkinManager / AmbientBackground / ...
+ 手机 / 平板 / 车机，横屏 / 竖屏 / 宽屏 / 窄屏；横竖屏切换不重启、不丢播放状态 
     └── res/                                # layout / layout-port / values-sw600dp / sw720dp / drawable-*dpi
 ```
 
@@ -186,7 +186,7 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 |---|---|
 | 网易搜索 | `music.163.com/api/search/get/web`（四级端点降级 + `os=pc` Cookie） |
 | 网易直链 | `music.163.com/song/media/outer/url?id=ID.mp3`（302；`/404` 表示无版权） |
-| 网易歌词 | `music.163.com/api/song/lyric`（`lrc` 空时用 `tlyric/klyric` 兜底） |
+ 效果  网易歌词 | `music.163.com/api/song/lyric`（`lrc` 空时用 `tlyric/klyric` 兜底） |
 | QQ 搜索 / 直链 / 歌词 | `c.y.qq.com/soso/fcgi-bin/client_search_cp`、`u.y.qq.com/cgi-bin/musicu.fcg`、`c.y.qq.com/lyric/fcgi-bin/...` |
 | 酷狗搜索 | `mobilecdn.kugou.com/api/v3/search/song`（官方直链已转付费，播放走跨源兜底） |
 | B站 搜索 / 音频 | `api.bilibili.com/x/web-interface/search/type`（需 `buvid3`）→ `view?bvid` → `playurl?fnval=16` → `dash.audio[].baseUrl`（**仅 HTTPS**，走 `StreamProxy`） |
@@ -209,7 +209,7 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 ## ⚠️ 声明
 
 > **仅供个人学习研究使用。** 本软件为非商业自用作品，用于学习 Android 原生开发；音乐、歌词、封面等内容均来自第三方公开网络接口，版权归原权利人所有。本软件**不存储、不上传**任何音频，收藏 / 历史 / 订阅 / 下载等数据仅保存在本机，卸载即清空。
->
+，桌面小部件与弹窗同步换肤。
 > 请勿用于任何商业用途或大批量分发。作者不对第三方接口的可用性、内容合法性及使用后果承担责任。
 
 <div align="center">
