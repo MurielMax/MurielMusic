@@ -4,7 +4,7 @@
 
 **A multi-source music player with zero dependencies, no backend, and Android 4.4 support**
 
-**English** · [简体中文](README.md) · [Live page](index.html)
+**English** · [简体中文](README.md) · [Live page](https://MurielMax.github.io/MurielMusic/)
 
 ![version](https://img.shields.io/badge/version-2.3.4-informational)
 ![Android](https://img.shields.io/badge/Android-4.4%2B-3DDC84)
