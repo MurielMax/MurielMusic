@@ -236,7 +236,7 @@ footer a:hover{color:var(--mint)}
       <h1><span class="g" data-zh="音乐，不必" data-en="Music, without">音乐，不必</span><br><span data-zh="依赖任何东西。" data-en="depending on anything.">依赖任何东西。</span></h1>
       <p class="lead"><span data-zh="一款纯 Android 原生 API 打造的多音源播放器。" data-en="A multi-source player built purely on Android platform APIs. ">一款纯 Android 原生 API 打造的多音源播放器。</span><b><span data-zh="搜索、直链解析、歌词、封面、节奏分析全部在 App 内完成" data-en="Search, stream resolution, lyrics, artwork, and beat analysis all happen inside the app">搜索、直链解析、歌词、封面、节奏分析全部在 App 内完成</span></b><span data-zh="，不需要服务器、不需要账号、不上传任何数据 —— 从 Android 4.4 一路跑到最新系统。" data-en=" — no server, no account, no data leaving the device, from Android 4.4 to current releases.">，不需要服务器、不需要账号、不上传任何数据 —— 从 Android 4.4 一路跑到最新系统。</span></p>
       <div class="cta">
-        <a class="btn primary" data-link="apkUrl" href="MurielMusic-v2.3.5-debug.apk"><span data-zh="下载 {{version}} APK · ~{{apkSize}} MB" data-en="Download {{version}} APK · ~{{apkSize}} KB">下载 {{version}} APK · ~{{apkSize}} KB</span></a>
+        <a class="btn primary" data-link="apkUrl" href="MurielMusic-v2.3.5-debug.apk"><span data-zh="下载 {{version}} APK · ~{{apkSize}} MB" data-en="Download {{version}} APK · ~{{apkSize}} MB">下载 {{version}} APK · ~{{apkSize}} MB</span></a>
         <a class="btn" href="#features"><span data-zh="查看功能" data-en="Explore features">查看功能</span> →</a>
       </div>
     </div>
@@ -278,9 +278,9 @@ footer a:hover{color:var(--mint)}
 
 <section>
   <div class="eyebrow" data-zh="核心技术 · Core" data-en="Core technique">核心技术 · Core</div>
-  <h2 data-zh="没有录音权限，律动也要跟得上音乐" data-en="Beat sync that survives a denied mic permission">没有录音权限，律动也要跟得上音乐</h2>
-  <p class="sec-lead" data-zh="旧做法用「歌曲 hash → 固定 BPM + 正弦波」合成动画，与正在播放的声音没有任何数据联系，节奏必然对不上。现在用 MediaCodec 解码同一份音频，算出 32 段能量随时间的变化，播放时按真实进度查表回放 —— 不启用麦克风、不录音、不联网二次拉流。"
-     data-en="The old approach synthesised motion from a song hash, a fixed BPM, and a sine wave — mathematically unrelated to the audio being played, so it could never line up. Now MediaCodec decodes the very same audio, computes a 32-band energy envelope over time, and plays it back by looking up the real playback position. No microphone, no recording, no extra network fetch.">旧做法用「歌曲 hash → 固定 BPM + 正弦波」合成动画，与正在播放的声音没有任何数据联系，节奏必然对不上。现在用 MediaCodec 解码同一份音频，算出 32 段能量随时间的变化，播放时按真实进度查表回放 —— 不启用麦克风、不录音、不联网二次拉流。</p>
+  <h2 data-zh="音乐律动频谱，律动也要跟得上音乐" data-en="Music beat spectrum that stays in sync with the music">音乐律动频谱，律动也要跟得上音乐</h2>
+  <p class="sec-lead" data-zh="直接分析声音本身：有录音权限时用 Visualizer 读播放混音做真实 FFT，无权限或读不到时退回 MediaCodec 解码同一份音频，算出 32 段随时间的能量包络，播放时按真实进度查表回放 —— 全程不录音、不联网二次拉流。"
+     data-en="We analyse the audio itself: with mic permission a Visualizer reads the playback mix for a real FFT; without it, or when no frames arrive, we fall back to decoding the very same audio with MediaCodec, computing a 32-band energy envelope over time and playing it back by looking up the real playback position. No recording, no extra network fetch.">直接分析声音本身：有录音权限时用 Visualizer 读播放混音做真实 FFT，无权限或读不到时退回 MediaCodec 解码同一份音频，算出 32 段随时间的能量包络，播放时按真实进度查表回放 —— 全程不录音、不联网二次拉流。</p>
 
   <div class="hl">
     <div class="hl-top">
