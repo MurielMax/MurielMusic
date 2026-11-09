@@ -4,9 +4,9 @@
 
 **一款零依赖、无后端、支持 Android 4.4 的多音源音乐播放器**
 
-[English](README.en.md) · **简体中文** · [在线介绍页](https://MurielMax.github.io/MurielMusic/)
+[English](README.en.md) · **简体中文** · [在线介绍页](https://murielmax.github.io/MurielMusic/)
 
-![version](https://img.shields.io/badge/version-2.3.4-informational)
+![version](https://img.shields.io/badge/version-2.3.5-informational)
 ![Android](https://img.shields.io/badge/Android-4.4%2B-3DDC84)
 ![dependencies](https://img.shields.io/badge/dependencies-0-orange)
 ![backend](https://img.shields.io/badge/backend-none-blue)
@@ -47,7 +47,8 @@ Muriel 音乐从 Android 4.4（API 19）一路兼容到最新系统，把「多�
 
 **第 ② 级是关键**：旧做法在拿不到 `RECORD_AUDIO` 时用「歌曲 hash → 固定 BPM + sin 波」合成，与正在播放的声音没有任何数据联系，节奏必然对不上。现在改为用 `MediaCodec` 解码**同一份音频**（本地文件，或在线流由 `StreamProxy` 落盘的缓存），计算 32 段能量随时间的变化，播放时按 `MediaPlayer` 真实进度查表回放。
 
-- **不启用麦克风、不录音、不联网二次拉流**，也不新增任何权限
+- **不启用麦克风、不录音、不联网二次拉流**，也不新增任何权限类型（`RECORD_AUDIO` 早就在清单里声明）
+- **首次启动会主动弹一次系统原生「录音」授权框**：排在免责协议与存储权限之后、三框串行不叠加；授权则第 ① 级真 FFT 从第一首歌起可用，拒绝也照常走第 ② 级律动，且全生命周期只问一次、不反复骚扰
 - `FFT_SIZE = 1024`、`HOP = 512`（50% 重叠窗）、`BANDS = 32`；长音频用 `SpectrumDsp.StrideMerge` **逐 hop 做 FFT、逐段取峰值合并**，避免跳帧造成的采样间隙把整击鼓点漏掉
 - 切歌 / seek / 单曲循环立即对齐；节奏表量化后缓存到 `getCacheDir()/beat/`，单份上限 24 MB、只留最近 3 份
 - 拒绝授权 ≠ 一定拿不到真 FFT：4.4 是安装期授权、部分 ROM / 车机不校验，所以一律先尝试挂载，再由「是否真有非零帧」判定有效性
@@ -123,7 +124,7 @@ Muriel 音乐从 Android 4.4（API 19）一路兼容到最新系统，把「多�
 | 语言 / 构建 | Java 8 语言特性（匿名内部类，无需脱糖）、AGP 3.5.3、Gradle 5.6.4、JDK 8、Build Tools 28.0.3 |
 | SDK | `minSdk 19` / `targetSdk 24` / `compileSdk 28` |
 | 包名 | `com.muriel.music`（可与旧版 `com.niuniu.music` 并存安装） |
-| 源码规模 | 52 个 Java 文件，约 2.07 万行；APK 约 594 KB（debug 签名） |
+| 源码规模 | 53 个 Java 文件，约 2.13 万行；APK 约 596 KB（debug 签名） |
 | 网络 | `HttpURLConnection` 自封装（自动解 gzip、跨协议重定向、TLS 1.2 兼容层）；`usesCleartextTraffic=true` |
 | 音频链路 | `MediaPlayer` + 内置本地流代理 `StreamProxy`（`127.0.0.1` 随机端口，把 B站仅 HTTPS 的音频流转成 HTTP 给 4.4 播放，支持 Range 透传） |
 | 频谱链路 | `Visualizer` → `SpectrumCapture` → `SpectrumDsp`（纯 Java FFT / 32 段分频）→ `BeatTrack`（`MediaCodec` 解码节奏表）→ `SpectrumData` 四级优先级 |
@@ -164,7 +165,7 @@ MurielMusic/
 
 ### 直接安装
 
-下载 [`MurielMusic-v2.3.4-debug.apk`](MurielMusic-v2.3.4-debug.apk)（约 594 KB，debug 签名），在 Android 4.4+ 设备上安装即可。首次启动需阅读并同意《学习免责协议》，之后可在「我的 · 关于」复查。
+下载 [`MurielMusic-v2.3.5-debug.apk`](MurielMusic-v2.3.5-debug.apk)（约 596 KB，debug 签名），在 Android 4.4+ 设备上安装即可。首次启动需阅读并同意《学习免责协议》，之后可在「我的 · 关于」复查。
 
 > 侧载安装到国产 ROM（荣耀 / 华为 / 小米等）后若出现「无网络」，请先在 **系统管家 → 流量管理 → 应用联网** 中为该应用勾选「移动数据」与「WLAN」，并关闭省流量模式与电池优化。这是系统侧管控，不是 App 兼容性问题。
 
@@ -214,6 +215,6 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 
 <div align="center">
 
-**[English](README.en.md) · 简体中文 · [在线介绍页](index.html)**
+**[English](README.en.md) · 简体中文 · [在线介绍页](https://murielmax.github.io/MurielMusic/)**
 
 </div>

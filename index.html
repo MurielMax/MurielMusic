@@ -191,6 +191,7 @@ pre .c{color:var(--dim)}
 .note{margin-top:14px;border-left:2px solid var(--gold);background:rgba(240,182,75,.06);
   padding:11px 14px;border-radius:0 8px 8px 0;font-size:12.5px;color:var(--sub)}
 .note b{color:var(--gold)}
+.dl-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
 
 /* disclaimer / footer */
 .disc{margin-top:66px;border:1px solid var(--line);border-radius:14px;padding:24px 26px;background:var(--card)}
@@ -201,6 +202,7 @@ footer{margin-top:44px;padding:26px 0 40px;border-top:1px solid var(--line);
 footer .nav-sp{flex:1}
 footer a:hover{color:var(--mint)}
 </style>
+<script src="site-config.js"></script>
 </head>
 <body>
 
@@ -216,7 +218,7 @@ footer a:hover{color:var(--mint)}
       <button id="b-zh" class="on" onclick="setLang('zh')">中文</button>
       <button id="b-en" onclick="setLang('en')">EN</button>
     </div>
-    <a class="btn primary" href="https://hk.gh-proxy.com/https://release-assets.githubusercontent.com/github-production-release-asset/1450127743/348825ca-d7b9-4371-8959-4923772e1861?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-08T10%3A19%3A00Z&rscd=attachment%3B+filename%3DMuriel.2.3.4.apk&rsct=application%2Fvnd.android.package-archive&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-08T09%3A18%3A24Z&ske=2026-11-08T10%3A19%3A00Z&sks=b&skv=2018-11-09&sig=1NWWlBGpy2a7Wxt3hXF4RFLp9imLek6qmWsF8hE90Mw%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDEyOTkyOSwibmJmIjoxNzk0MTI5NjI5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.qooBaxXQhybECyEgQ4Q4sH0MXOT6tVOTdrx-VxQpuBw&response-content-disposition=attachment%3B%20filename%3DMuriel.2.3.4.apk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg><span data-zh="下载 APK" data-en="Get APK">下载 APK</span></a>
+    <a class="btn primary" data-link="apkUrl" href="MurielMusic-v2.3.5-debug.apk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg><span data-zh="下载 APK" data-en="Get APK">下载 APK</span></a>
   </div>
 </nav>
 
@@ -226,7 +228,7 @@ footer a:hover{color:var(--mint)}
   <div class="hero-grid">
     <div>
       <div class="tags">
-        <span class="tag">v2.3.4 · build 127</span>
+        <span class="tag">{{version}} · build {{build}}</span>
         <span class="tag b" data-zh="Android 4.4+" data-en="Android 4.4+">Android 4.4+</span>
         <span class="tag g" data-zh="0 第三方依赖" data-en="0 dependencies">0 第三方依赖</span>
         <span class="tag" data-zh="无后端" data-en="No backend">无后端</span>
@@ -234,7 +236,7 @@ footer a:hover{color:var(--mint)}
       <h1><span class="g" data-zh="音乐，不必" data-en="Music, without">音乐，不必</span><br><span data-zh="依赖任何东西。" data-en="depending on anything.">依赖任何东西。</span></h1>
       <p class="lead"><span data-zh="一款纯 Android 原生 API 打造的多音源播放器。" data-en="A multi-source player built purely on Android platform APIs. ">一款纯 Android 原生 API 打造的多音源播放器。</span><b><span data-zh="搜索、直链解析、歌词、封面、节奏分析全部在 App 内完成" data-en="Search, stream resolution, lyrics, artwork, and beat analysis all happen inside the app">搜索、直链解析、歌词、封面、节奏分析全部在 App 内完成</span></b><span data-zh="，不需要服务器、不需要账号、不上传任何数据 —— 从 Android 4.4 一路跑到最新系统。" data-en=" — no server, no account, no data leaving the device, from Android 4.4 to current releases.">，不需要服务器、不需要账号、不上传任何数据 —— 从 Android 4.4 一路跑到最新系统。</span></p>
       <div class="cta">
-        <a class="btn primary" href="https://hk.gh-proxy.com/https://release-assets.githubusercontent.com/github-production-release-asset/1450127743/348825ca-d7b9-4371-8959-4923772e1861?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-08T10%3A19%3A00Z&rscd=attachment%3B+filename%3DMuriel.2.3.4.apk&rsct=application%2Fvnd.android.package-archive&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-08T09%3A18%3A24Z&ske=2026-11-08T10%3A19%3A00Z&sks=b&skv=2018-11-09&sig=1NWWlBGpy2a7Wxt3hXF4RFLp9imLek6qmWsF8hE90Mw%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDEyOTkyOSwibmJmIjoxNzk0MTI5NjI5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.qooBaxXQhybECyEgQ4Q4sH0MXOT6tVOTdrx-VxQpuBw&response-content-disposition=attachment%3B%20filename%3DMuriel.2.3.4.apk"><span data-zh="下载 v2.3.4 APK · ~594 KB" data-en="Download v2.3.4 APK · ~594 KB">下载 v2.3.4 APK · ~594 KB</span></a>
+        <a class="btn primary" data-link="apkUrl" href="MurielMusic-v2.3.5-debug.apk"><span data-zh="下载 {{version}} APK · ~{{apkSize}} KB" data-en="Download {{version}} APK · ~{{apkSize}} KB">下载 {{version}} APK · ~{{apkSize}} KB</span></a>
         <a class="btn" href="#features"><span data-zh="查看功能" data-en="Explore features">查看功能</span> →</a>
       </div>
     </div>
@@ -266,11 +268,11 @@ footer a:hover{color:var(--mint)}
   </div>
 
   <div class="stats">
-    <div class="stat"><b>52</b><span data-zh="Java 源文件" data-en="Java source files">Java 源文件</span></div>
+    <div class="stat"><b>{{javaFiles}}</b><span data-zh="Java 源文件" data-en="Java source files">Java 源文件</span></div>
     <div class="stat"><b>0</b><span data-zh="第三方依赖" data-en="3rd-party deps">第三方依赖</span></div>
     <div class="stat"><b>4+1</b><span data-zh="音源 + 电台" data-en="sources + radio">音源 + 电台</span></div>
     <div class="stat"><b>4</b><span data-zh="套皮肤" data-en="skins">套皮肤</span></div>
-    <div class="stat"><b>31/31</b><span data-zh="离线单测通过" data-en="offline tests pass">离线单测通过</span></div>
+    <div class="stat"><b>{{tests}}</b><span data-zh="离线单测通过" data-en="offline tests pass">离线单测通过</span></div>
   </div>
 </header>
 
@@ -291,6 +293,7 @@ footer a:hover{color:var(--mint)}
       <div class="lv c"><span class="k">03 / SYNTH</span><b data-zh="装饰律动" data-en="Decorative motion">装饰律动</b><p data-zh="音频不可解析时兜底，保证频谱不变成一条死线" data-en="Fallback when audio cannot be parsed, so the spectrum never goes flat">音频不可解析时兜底，保证频谱不变成一条死线</p><div class="no" data-zh="— 仅保底" data-en="— Safety net only">— 仅保底</div></div>
       <div class="lv d"><span class="k">04 / IDLE</span><b data-zh="待机呼吸" data-en="Idle breathing">待机呼吸</b><p data-zh="暂停时轻微呼吸，不消耗解码资源" data-en="Gentle breathing while paused, no decoding cost">暂停时轻微呼吸，不消耗解码资源</p><div class="no" data-zh="— 暂停" data-en="— Paused">— 暂停</div></div>
     </div>
+    <p class="note" data-zh="首次启动会主动弹一次系统原生的「录音」授权框，排在免责协议与存储权限之后、三框串行不叠加；授权则第 ① 级真 FFT 从第一首歌起可用，拒绝也照常走第 ② 级律动，且只问一次、不反复骚扰。应用不启用麦克风、不录音、不上传，也不新增权限类型（RECORD_AUDIO 早已声明）。" data-en="First launch asks once for the system-native mic permission, sequenced after the disclaimer and storage dialogs so the three never stack. Granting it enables level ① real FFT from the first track; denying it still falls back to level ② and is never asked again. No microphone is activated, nothing is recorded or uploaded, and no new permission type is added (RECORD_AUDIO has always been declared).">首次启动会主动弹一次系统原生的「录音」授权框，排在免责协议与存储权限之后、三框串行不叠加；授权则第 ① 级真 FFT 从第一首歌起可用，拒绝也照常走第 ② 级律动，且只问一次、不反复骚扰。应用不启用麦克风、不录音、不上传，也不新增权限类型（RECORD_AUDIO 早已声明）。</p>
   </div>
 </section>
 
@@ -347,7 +350,10 @@ footer a:hover{color:var(--mint)}
   <div class="two">
     <div class="pane">
       <h3 data-zh="① 直接安装" data-en="① Install the APK">① 直接安装</h3>
-      <p data-zh="下载 Muriel音乐 安装包（约 594 KB），在 Android 4.4+ 设备安装。首次启动需阅读并同意《学习免责协议》，之后可在「我的 · 关于」复查。" data-en="Download the v2.3.4 debug build (~594 KB) and install on Android 4.4+. The first launch asks you to accept the Study Disclaimer, reviewable later under Mine · About.">下载 v2.3.4 debug 包（约 594 KB），在 Android 4.4+ 设备安装。首次启动需阅读并同意《学习免责协议》，之后可在「我的 · 关于」复查。</p>
+      <p data-zh="下载 {{version}} debug 包（约 {{apkSize}} KB），在 Android 4.4+ 设备安装。首次启动需阅读并同意《学习免责协议》，之后可在「我的 · 关于」复查。" data-en="Download the {{version}} debug build (~{{apkSize}} KB) and install on Android 4.4+. The first launch asks you to accept the Study Disclaimer, reviewable later under Mine · About.">下载 {{version}} debug 包（约 {{apkSize}} KB），在 Android 4.4+ 设备安装。首次启动需阅读并同意《学习免责协议》，之后可在「我的 · 关于」复查。</p>
+      <div class="dl-row">
+        <a class="btn" data-link="srcUrl"><span data-zh="下载源码包 {{srcUrl}}" data-en="Source package {{srcUrl}}">下载源码包 {{srcUrl}}</span></a>
+      </div>
       <div class="note"><b data-zh="侧载提示：" data-en="Sideload note: ">侧载提示：</b><span data-zh="在荣耀 / 华为 / 小米等 ROM 上若显示「无网络」，先到「系统管家 → 流量管理 → 应用联网」为该应用勾选移动数据与 WLAN，并关闭省流量模式与电池优化。这是系统侧管控，不是 App 兼容性问题。" data-en="On HONOR / HUAWEI / Xiaomi ROMs, if the app reports no network, enable Mobile data and WLAN for it under System Manager → Data usage → App network access, and turn off Data Saver and battery optimisation. That is OS policy, not an app compatibility issue.">在荣耀 / 华为 / 小米等 ROM 上若显示「无网络」，先到「系统管家 → 流量管理 → 应用联网」为该应用勾选移动数据与 WLAN，并关闭省流量模式与电池优化。这是系统侧管控，不是 App 兼容性问题。</span></div>
     </div>
     <div class="pane">
@@ -372,7 +378,7 @@ gradle -Dorg.gradle.native=false assembleDebug</pre>
 </div>
 
 <footer>
-  <span>Muriel Music · v2.3.4 (build 127) · com.muriel.music</span>
+  <span id="footerVer">Muriel Music · {{version}} (build {{build}}) · {{pkg}}</span>
   <span class="nav-sp"></span>
   <a href="README.md">README 中文</a>
   <a href="README.en.md">README (EN)</a>
@@ -382,6 +388,33 @@ gradle -Dorg.gradle.native=false assembleDebug</pre>
 </div>
 
 <script>
+function replaceTokens(s){
+  var c = window.MM_CONFIG || {};
+  return String(s).replace(/\{\{(\w+)\}\}/g, function(_, k){
+    return c[k] !== undefined ? c[k] : '{{'+k+'}}';
+  });
+}
+// 兜底：遍历文档所有文本节点，替换残留占位符。
+// 这样即便某元素没有 data-zh/data-en（如版本标签、统计数字、页脚），版本号也能注入。
+function fillAllTokens(root){
+  var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
+  var n;
+  while ((n = walker.nextNode())) {
+    var p = n.parentNode;
+    if (p && (p.tagName === 'SCRIPT' || p.tagName === 'STYLE')) continue;
+    if (n.nodeValue.indexOf('{{') !== -1) n.nodeValue = replaceTokens(n.nodeValue);
+  }
+}
+function applyConfig(){
+  var c = window.MM_CONFIG || {};
+  // 下载 / 文档链接：data-link 指向配置字段名
+  var links = document.querySelectorAll('[data-link]');
+  for (var i = 0; i < links.length; i++){
+    var key = links[i].getAttribute('data-link');
+    if (c[key]) links[i].setAttribute('href', c[key]);
+  }
+  if (document.body) fillAllTokens(document.body);
+}
 function setLang(l){
   var zh = l === 'zh';
   document.documentElement.lang = zh ? 'zh-CN' : 'en';
@@ -389,7 +422,7 @@ function setLang(l){
   var nodes = document.querySelectorAll('[data-zh]');
   for (var i = 0; i < nodes.length; i++){
     var el = nodes[i], v = el.getAttribute(zh ? 'data-zh' : 'data-en');
-    if (v !== null) el.textContent = v;
+    if (v !== null) el.textContent = replaceTokens(v);
   }
   document.getElementById('b-zh').className = zh ? 'on' : '';
   document.getElementById('b-en').className = zh ? '' : 'on';
@@ -400,6 +433,7 @@ function setLang(l){
   try { saved = localStorage.getItem('mm-lang'); } catch(e){}
   if (!saved) saved = (navigator.language || '').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en';
   setLang(saved === 'en' ? 'en' : 'zh');
+  applyConfig();
 })();
 </script>
 </body>

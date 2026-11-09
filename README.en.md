@@ -4,9 +4,9 @@
 
 **A multi-source music player with zero dependencies, no backend, and Android 4.4 support**
 
-**English** · [简体中文](README.md) · [Live page](https://MurielMax.github.io/MurielMusic/)
+**English** · [简体中文](README.md) · [Live page](https://murielmax.github.io/MurielMusic/)
 
-![version](https://img.shields.io/badge/version-2.3.4-informational)
+![version](https://img.shields.io/badge/version-2.3.5-informational)
 ![Android](https://img.shields.io/badge/Android-4.4%2B-3DDC84)
 ![dependencies](https://img.shields.io/badge/dependencies-0-orange)
 ![backend](https://img.shields.io/badge/backend-none-blue)
@@ -47,7 +47,8 @@ The spectrum is on by default with **bar / mirror / waveform** styles. Data fall
 
 **Level ② is the key.** The old approach, used when `RECORD_AUDIO` was unavailable, synthesised motion from `song hash → fixed BPM + sine wave` — mathematically unrelated to the sound being played, so it could never line up with the beat. Now `MediaCodec` decodes **the very same audio** (a local file, or the on-disk cache written by `StreamProxy` for online streams), computes the 32-band energy envelope over time, and plays it back by looking up the `MediaPlayer`'s real position.
 
-- **No microphone, no recording, no extra network fetch, no new permission.**
+- **No microphone, no recording, no extra network fetch, no new permission type** (`RECORD_AUDIO` has always been declared).
+- **First launch asks once for the system-native mic permission**, sequenced after the disclaimer and storage dialogs so the three never stack. Granting it enables level ① real FFT from the first track; denying it still falls back to level ② and is never asked again.
 - `FFT_SIZE = 1024`, `HOP = 512` (50% overlap), `BANDS = 32`. For long audio, `SpectrumDsp.StrideMerge` runs an FFT on **every hop** and merges bands by **peak value**, so downsampling never leaves a gap that could swallow an entire drum hit.
 - Track change / seek / repeat-one re-align immediately. The quantised envelope is cached under `getCacheDir()/beat/`, capped at 24 MB per entry with the 3 most recent retained.
 - A denied permission does not necessarily mean no real FFT: API 19 grants at install time and some ROMs / head units do not enforce the check, so the app always tries to attach first and judges validity by whether non-zero frames actually arrive.
@@ -123,7 +124,7 @@ Backgrounds, strokes, glow, text, and button icons are **drawn at runtime from t
 | Language / build | Java 8 language features (anonymous classes, no desugaring needed), AGP 3.5.3, Gradle 5.6.4, JDK 8, Build Tools 28.0.3 |
 | SDK | `minSdk 19` / `targetSdk 24` / `compileSdk 28` |
 | Package | `com.muriel.music` (can be installed alongside the legacy `com.niuniu.music`) |
-| Size | 52 Java files, ~20.7k lines; APK ~594 KB (debug-signed) |
+| Size | 53 Java files, ~21.3k lines; APK ~596 KB (debug-signed) |
 | Networking | In-house `HttpURLConnection` wrapper (auto gzip, cross-protocol redirects, TLS 1.2 compat layer); `usesCleartextTraffic=true` |
 | Audio path | `MediaPlayer` + built-in local proxy `StreamProxy` (random `127.0.0.1` port; converts Bilibili's HTTPS-only audio to HTTP for API 19 `MediaPlayer`, with Range passthrough) |
 | Spectrum path | `Visualizer` → `SpectrumCapture` → `SpectrumDsp` (pure-Java FFT / 32 bands) → `BeatTrack` (`MediaCodec` beat envelope) → `SpectrumData` four-level priority |
@@ -164,7 +165,7 @@ MurielMusic/
 
 ### Install directly
 
-Download [`MurielMusic-v2.3.4-debug.apk`](MurielMusic-v2.3.4-debug.apk) (~594 KB, debug-signed) and install it on any Android 4.4+ device. The first launch asks you to read and accept the *Study Disclaimer*; you can review it later under *Mine · About*.
+Download [`MurielMusic-v2.3.5-debug.apk`](MurielMusic-v2.3.5-debug.apk) (~596 KB, debug-signed) and install it on any Android 4.4+ device. The first launch asks you to read and accept the *Study Disclaimer*; you can review it later under *Mine · About*.
 
 > If the app reports "no network" after sideloading on a Chinese ROM (HONOR / HUAWEI / Xiaomi / etc.), first enable both **Mobile data** and **WLAN** for it under *System Manager → Data usage → App network access*, and turn off Data Saver and battery optimisation. That is an OS-level policy, not an app compatibility issue.
 
@@ -214,6 +215,6 @@ Requires JDK 8 + Android SDK Platform 28 + Build Tools 28.0.3. If an older Gradl
 
 <div align="center">
 
-**English · [简体中文](README.md) · [Live page](index.html)**
+**English · [简体中文](README.md) · [Live page](https://murielmax.github.io/MurielMusic/)**
 
 </div>
