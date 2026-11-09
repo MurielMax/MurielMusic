@@ -22,14 +22,14 @@ window.MM_CONFIG = {
   pkg:     "com.muriel.music", // 应用包名：页脚展示
 
   /* —— 产物信息（展示用，升级时同步改） —— */
-  apkSize:   596,              // APK 大小（KB），仅文案展示
+  apkSize:   2.07,              // APK 大小（KB），仅文案展示
   javaFiles: 53,               // 主源码 Java 文件数：统计卡片
   tests:     "31/31",         // 离线单测通过情况：统计卡片 / 兼容性表
                                //   （实际已随版本增长，按你当前想对外展示的数填写）
 
   /* —— 下载链接（升级时改成新文件名 / 新地址） —— */
-  apkUrl: "MurielMusic-v2.3.5-debug.apk", // APK 下载地址
-  srcUrl: "MurielMusic-src-v2.3.5.zip",   // 源码包下载地址
+  apkUrl: "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.3.5/Muriel.v2.3.5.apk", // APK 下载地址
+  srcUrl: "/",   // 源码包下载地址
 
   /* —— 文档与仓库链接（一般不改，留作扩展） —— */
   readmeZh: "README.md",
