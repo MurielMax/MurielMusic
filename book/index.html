@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>回声 · 产品反馈中心</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg-decor"></div>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="brand">
+      <div class="brand-logo">回</div>
+      <div class="brand-text">
+        <h1 id="siteTitle">回声 · 产品反馈中心</h1>
+        <p id="siteDesc">每一条反馈都会被认真对待</p>
+      </div>
+    </div>
+    <!-- 审核后台入口默认隐藏：连续点击「留言广场」5 次进入 -->
+    <nav class="tabs">
+      <button class="tab active" data-view="board" id="boardTab">留言广场</button>
+      <button class="tab hidden" data-view="admin">审核后台<span id="adminBadge" class="badge-dot hidden">0</span></button>
+      <span class="view-hint hidden" id="viewHint">审核后台</span>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- ==================== 留言广场 ==================== -->
+  <section id="viewBoard">
+    <!-- 管理员登录后显示：可直接在时间轴卡片上回复 -->
+    <div class="admin-mode-bar hidden" id="adminModeBar">
+      <span><b>管理员模式已开启</b> · 可直接在下方时间轴的留言卡片上点击「回复此留言」进行官方回复</span>
+      <button class="btn-mini" id="exitAdminMode" type="button">退出管理</button>
+    </div>
+
+    <div class="layout">
+      <aside class="col-side">
+        <div class="card form-card">
+          <div class="card-title">
+            <h2>写下你的反馈</h2>
+            <span class="card-title-sub">提交后即刻出现在时间轴</span>
+          </div>
+          <form id="feedbackForm" autocomplete="off">
+            <div class="field-row">
+              <label class="field">
+                <span>昵称 <i>选填</i></span>
+                <input id="nickname" type="text" maxlength="20" placeholder="匿名用户">
+              </label>
+              <label class="field">
+                <span>反馈分类</span>
+                <select id="category"></select>
+              </label>
+            </div>
+            <label class="field">
+              <span>反馈内容 <b>*</b></span>
+              <textarea id="content" rows="6" maxlength="500" placeholder="说说你的想法、遇到的问题，或希望新增的功能……"></textarea>
+              <em class="counter"><span id="charCount">0</span> / 500</em>
+            </label>
+            <label class="field">
+              <span>联系方式 <i>选填，便于我们回复你</i></span>
+              <input id="contact" type="text" maxlength="60" placeholder="邮箱或其它方式">
+            </label>
+            <div id="adWarning" class="ad-warning hidden"></div>
+            <div id="rateHint" class="rate-hint"></div>
+            <button class="btn btn-primary btn-block" id="submitBtn" type="submit">提交反馈</button>
+          </form>
+        </div>
+
+        <div class="card tip-card">
+          <h3>内容审核说明</h3>
+          <ul>
+            <li>含营销词、站外联系方式、手机号、可疑外链的内容会被自动拦截。</li>
+          </ul>
+        </div>
+
+        <div class="card hidden" id="myPendingCard">
+          <h3>我提交的待审核</h3>
+          <div id="myPendingList"></div>
+        </div>
+      </aside>
+
+      <section class="col-main">
+        <div class="card filter-card">
+          <div class="chips" id="chips"></div>
+          <div class="filter-tools">
+            <div class="search-box">
+              <input id="search" type="search" placeholder="搜索留言内容 / 昵称">
+            </div>
+            <button class="btn btn-ghost" id="sortBtn" type="button">最新在前</button>
+          </div>
+        </div>
+
+        <div id="timeline" class="timeline"></div>
+        <div id="emptyState" class="empty hidden">
+          <div class="empty-icon">—</div>
+          <p>这里还没有留言</p>
+          <span>换个筛选条件，或成为第一个提反馈的人</span>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ==================== 审核后台（隐藏入口） ==================== -->
+  <section id="viewAdmin" class="hidden">
+    <div id="loginPanel" class="card login-card">
+      <div class="login-badge">后台</div>
+      <h2>审核后台</h2>
+      <p>被广告过滤拦截的留言需要在这里人工复核，放行后才会展示到公开时间轴。</p>
+      <div class="login-row">
+        <input id="adminPass" type="password" placeholder="请输入管理口令">
+        <button class="btn btn-primary" id="loginBtn" type="button">进入后台</button>
+      </div>
+      <div><button class="btn btn-ghost login-back" id="loginBackBtn" type="button">返回留言广场</button></div>
+    </div>
+
+    <div id="adminPanel" class="hidden">
+      <div class="admin-head">
+        <div>
+          <h2>审核工作台</h2>
+          <span id="adminSummary">—</span>
+        </div>
+        <div class="admin-head-actions">
+          <button class="btn btn-primary" id="exportBtn" type="button">导出数据</button>
+          <button class="btn btn-ghost" id="resetBtn" type="button">恢复初始数据</button>
+          <button class="btn btn-ghost" id="backBoardBtn" type="button">返回留言广场</button>
+          <button class="btn btn-ghost" id="logoutBtn" type="button">退出登录</button>
+        </div>
+      </div>
+
+      <!-- 数据展示模块：仅在后台显示 -->
+      <div class="stats" id="stats"></div>
+
+      <div class="admin-grid">
+        <div class="card">
+          <div class="card-title">
+            <h3>待审核队列</h3>
+            <span class="pill pill-warn" id="pendingCount">0 条</span>
+          </div>
+          <div id="pendingList" class="audit-list"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <h3>已发布留言</h3>
+            <span class="pill" id="publishedCount">0 条</span>
+          </div>
+          <div id="publishedList" class="audit-list"></div>
+        </div>
+      </div>
+
+      <div class="card rules-card">
+        <div class="card-title">
+          <h3>广告过滤规则</h3>
+          <div class="rules-head-actions">
+            <button class="btn-mini" id="ruleAddBtn" type="button">+ 新增规则</button>
+            <button class="btn-mini danger" id="ruleResetBtn" type="button">恢复默认规则</button>
+          </div>
+        </div>
+
+        <div class="rule-threshold">
+          <label for="thresholdInput">拦截阈值</label>
+          <input id="thresholdInput" type="number" min="1" max="99" step="1">
+          <span>分</span>
+          <button class="btn-mini ok" id="thresholdSaveBtn" type="button">保存</button>
+          <em>广告分达到该值即转入待审核队列</em>
+        </div>
+
+        <div class="rule-form hidden" id="ruleForm">
+          <h4 id="ruleFormTitle">新增规则</h4>
+          <div class="field-row">
+            <label class="field">
+              <span>规则名称</span>
+              <input id="ruleName" type="text" maxlength="20" placeholder="例如：招聘广告">
+            </label>
+            <label class="field">
+              <span>命中分值</span>
+              <input id="ruleScore" type="number" min="1" max="10" step="1" value="2">
+            </label>
+          </div>
+          <div class="field-row">
+            <label class="field">
+              <span>匹配方式</span>
+              <select id="ruleMode">
+                <option value="keyword">关键词</option>
+                <option value="regex">正则表达式</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>匹配内容</span>
+              <input id="rulePattern" type="text" placeholder="多个关键词用逗号分隔">
+            </label>
+          </div>
+          <div class="rule-test">
+            <input id="ruleTestText" type="text" placeholder="输入一段文字，测试这条规则是否命中">
+            <button class="btn-mini" id="ruleTestBtn" type="button">测试</button>
+            <span class="rule-test-result" id="ruleTestResult"></span>
+          </div>
+          <div class="rule-form-actions">
+            <button class="btn-mini ok" id="ruleSaveBtn" type="button">保存规则</button>
+            <button class="btn-mini" id="ruleCancelBtn" type="button">取消</button>
+          </div>
+        </div>
+
+        <div id="rulesList" class="rules-table"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="toast" class="toast"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
