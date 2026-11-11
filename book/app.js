@@ -10,9 +10,11 @@
 
   /* ---------- 兜底数据：万一 data.js 未被加载，页面仍能运行 ---------- */
   var FALLBACK_CFG = {
-    siteName: '产品反馈中心',
+    siteName: '回声 · 产品反馈中心',
     siteDesc: '每一条反馈都会被认真对待，时间轴记录产品成长的每一步',
-    adminPassword: '851985',
+    adminPasswordHash: '093ab158a6c85d31ace1394f2ac0bd0d5606e00bf94a940c47edcf6eaba15ba0',
+    adminSalt: 'r7k2m9x4p6q1v8t3',
+    hashIterations: 1000,
     secretClicks: 5,
     secretWindowMs: 2000,
     adScoreThreshold: 2,
@@ -59,6 +61,9 @@
   var DEVICE_KEY = 'feedback_device_v1';
   var RATE_KEY = 'feedback_rate_v1';
   var IP_KEY = 'feedback_ip_v1';
+  var AUTH_KEY = 'feedback_auth_v1';
+  var DEFAULT_SALT = 'r7k2m9x4p6q1v8t3';
+  var DEFAULT_ITER = 1000;
   var J = JSON.stringify;
   var $ = function (s) { return document.querySelector(s); };
 
@@ -114,6 +119,122 @@
       { key: key, label: '其他', color: '#475569', bg: '#f1f5f9' };
   }
   function byTimeDesc(a, b) { return dObj(b.createdAt) - dObj(a.createdAt); }
+
+  /* ---------- 口令哈希：加盐 + SHA-256 迭代，源码中不留明文 ---------- */
+  var SHA256_K = [
+    0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
+    0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
+    0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
+    0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,
+    0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13, 0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,
+    0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3, 0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,
+    0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5, 0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,
+    0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2
+  ];
+  var SHA256_H0 = [
+    0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19
+  ];
+  function rotr(x, n) { return (x >>> n) | (x << (32 - n)); }
+  function utf8Bytes(s) {
+    if (typeof TextEncoder === 'function') {
+      return Array.prototype.slice.call(new TextEncoder().encode(s));
+    }
+    var out = [], i, c;
+    for (i = 0; i < s.length; i++) {
+      c = s.charCodeAt(i);
+      if (c < 0x80) out.push(c);
+      else if (c < 0x800) out.push(0xc0 | (c >> 6), 0x80 | (c & 63));
+      else if (c >= 0xd800 && c <= 0xdbff && i + 1 < s.length &&
+               s.charCodeAt(i + 1) >= 0xdc00 && s.charCodeAt(i + 1) <= 0xdfff) {
+        var cp = 0x10000 + ((c - 0xd800) << 10) + (s.charCodeAt(i + 1) - 0xdc00);
+        out.push(0xf0 | (cp >> 18), 0x80 | ((cp >> 12) & 63),
+                 0x80 | ((cp >> 6) & 63), 0x80 | (cp & 63));
+        i++;
+      } else out.push(0xe0 | (c >> 12), 0x80 | ((c >> 6) & 63), 0x80 | (c & 63));
+    }
+    return out;
+  }
+  function sha256(str) {
+    var bytes = utf8Bytes(String(str));
+    var bits = bytes.length * 8;
+    var hi = Math.floor(bits / 4294967296), lo = bits >>> 0;
+    bytes.push(0x80);
+    while (bytes.length % 64 !== 56) bytes.push(0);
+    bytes.push((hi >>> 24) & 255, (hi >>> 16) & 255, (hi >>> 8) & 255, hi & 255,
+               (lo >>> 24) & 255, (lo >>> 16) & 255, (lo >>> 8) & 255, lo & 255);
+    var H = SHA256_H0.slice(), w = new Array(64), t;
+    for (var off = 0; off < bytes.length; off += 64) {
+      for (t = 0; t < 16; t++) {
+        w[t] = ((bytes[off + 4 * t] << 24) | (bytes[off + 4 * t + 1] << 16) |
+                (bytes[off + 4 * t + 2] << 8) | bytes[off + 4 * t + 3]) >>> 0;
+      }
+      for (t = 16; t < 64; t++) {
+        var x = w[t - 15], y = w[t - 2];
+        var s0 = rotr(x, 7) ^ rotr(x, 18) ^ (x >>> 3);
+        var s1 = rotr(y, 17) ^ rotr(y, 19) ^ (y >>> 10);
+        w[t] = (w[t - 16] + s0 + w[t - 7] + s1) >>> 0;
+      }
+      var a = H[0], b = H[1], c = H[2], d = H[3], e = H[4], f = H[5], g = H[6], h = H[7];
+      for (t = 0; t < 64; t++) {
+        var S1 = rotr(e, 6) ^ rotr(e, 11) ^ rotr(e, 25);
+        var ch = (e & f) ^ (~e & g);
+        var t1 = (h + S1 + ch + SHA256_K[t] + w[t]) >>> 0;
+        var S0 = rotr(a, 2) ^ rotr(a, 13) ^ rotr(a, 22);
+        var maj = (a & b) ^ (a & c) ^ (b & c);
+        var t2 = (S0 + maj) >>> 0;
+        h = g; g = f; f = e; e = (d + t1) >>> 0; d = c; c = b; b = a; a = (t1 + t2) >>> 0;
+      }
+      H[0] = (H[0] + a) >>> 0; H[1] = (H[1] + b) >>> 0;
+      H[2] = (H[2] + c) >>> 0; H[3] = (H[3] + d) >>> 0;
+      H[4] = (H[4] + e) >>> 0; H[5] = (H[5] + f) >>> 0;
+      H[6] = (H[6] + g) >>> 0; H[7] = (H[7] + h) >>> 0;
+    }
+    var out = '';
+    for (t = 0; t < 8; t++) out += ('00000000' + H[t].toString(16)).slice(-8);
+    return out;
+  }
+  function hashPassword(pwd, salt, iterations) {
+    var n = Math.max(1, Math.min(10000, Number(iterations) || DEFAULT_ITER));
+    var x = String(salt == null ? '' : salt) + String(pwd == null ? '' : pwd);
+    for (var i = 0; i < n; i++) x = sha256(x);
+    return x;
+  }
+  function randomSalt() {
+    try {
+      var a = new Uint8Array(16);
+      (window.crypto || window.msCrypto).getRandomValues(a);
+      return Array.prototype.map.call(a, function (b) {
+        return ('0' + b.toString(16)).slice(-2);
+      }).join('');
+    } catch (e) {
+      return String(Date.now()) + Math.random().toString(36).slice(2);
+    }
+  }
+  /* 优先读改过的口令（本地），否则读数据文件；兼容旧版明文配置 */
+  function authConfig() {
+    var saved = sGet(AUTH_KEY);
+    if (saved) {
+      try { var o = JSON.parse(saved); if (o && o.hash) return o; } catch (e) {}
+    }
+    if (CFG.adminPasswordHash) {
+      return {
+        hash: String(CFG.adminPasswordHash),
+        salt: String(CFG.adminSalt || ''),
+        iterations: Number(CFG.hashIterations) || DEFAULT_ITER
+      };
+    }
+    if (CFG.adminPassword) return { legacy: String(CFG.adminPassword) };
+    return {
+      hash: FALLBACK_CFG.adminPasswordHash,
+      salt: FALLBACK_CFG.adminSalt,
+      iterations: FALLBACK_CFG.hashIterations
+    };
+  }
+  function checkPassword(input) {
+    var a = authConfig();
+    if (a.legacy) return String(input) === a.legacy;
+    return hashPassword(input, a.salt, a.iterations) === a.hash;
+  }
 
   /* ---------- 规则解析：关键词 / 正则 统一转成 RegExp ---------- */
   function makeRegExp(mode, raw, flags) {
@@ -685,6 +806,11 @@
   function buildDataJS() {
     var c = CFG;
     var rl = c.rateLimit || RATE;
+    /* 只导出哈希；若来源是旧版明文配置，就地迁移为哈希 */
+    var auth = authConfig();
+    var outHash = auth.legacy ? hashPassword(auth.legacy, DEFAULT_SALT, DEFAULT_ITER) : auth.hash;
+    var outSalt = auth.legacy ? DEFAULT_SALT : (auth.salt || DEFAULT_SALT);
+    var outIter = auth.iterations || DEFAULT_ITER;
     var cats = (c.categories || []).map(function (x) {
       return '    { key: ' + J(x.key) + ', label: ' + J(x.label) +
         ', color: ' + J(x.color) + ', bg: ' + J(x.bg) + ' }';
@@ -698,7 +824,9 @@
       'window.FEEDBACK_CONFIG = {\n' +
       '  siteName: ' + J(c.siteName) + ',\n' +
       '  siteDesc: ' + J(c.siteDesc) + ',\n' +
-      '  adminPassword: ' + J(c.adminPassword) + ',\n' +
+      '  adminPasswordHash: ' + J(outHash) + ',\n' +
+      '  adminSalt: ' + J(outSalt) + ',\n' +
+      '  hashIterations: ' + outIter + ',\n' +
       '  secretClicks: ' + (c.secretClicks || 5) + ',\n' +
       '  secretWindowMs: ' + (c.secretWindowMs || 2000) + ',\n' +
       '  adScoreThreshold: ' + state.threshold + ',\n' +
@@ -762,7 +890,7 @@
     }
   }
   function doLogin() {
-    if ($('#adminPass').value === String(CFG.adminPassword)) {
+    if (checkPassword($('#adminPass').value)) {
       state.authed = true;
       $('#loginPanel').classList.add('hidden');
       $('#adminPanel').classList.remove('hidden');
@@ -779,6 +907,19 @@
     $('#loginPanel').classList.remove('hidden');
     render();
     toast('已退出管理', 'ok');
+  }
+  /* 修改管理口令：生成新随机盐 + 哈希，本地即时生效，导出后永久保存 */
+  function changePassword() {
+    var old = $('#oldPass').value, n1 = $('#newPass').value, n2 = $('#newPass2').value;
+    if (!checkPassword(old)) { toast('当前口令不正确', 'err'); return; }
+    if (n1.length < 6) { toast('新口令至少 6 位', 'err'); return; }
+    if (n1 !== n2) { toast('两次输入的新口令不一致', 'err'); return; }
+    var salt = randomSalt();
+    var it = Number(authConfig().iterations) || DEFAULT_ITER;
+    sSet(AUTH_KEY, J({ hash: hashPassword(n1, salt, it), salt: salt, iterations: it }));
+    $('#oldPass').value = ''; $('#newPass').value = ''; $('#newPass2').value = '';
+    $('#pwdForm').classList.add('hidden');
+    toast('管理口令已更新，导出数据可永久保存', 'ok');
   }
 
   function init() {
@@ -890,6 +1031,16 @@
       if (e.key === 'Enter') saveThreshold();
     });
     $('#ruleResetBtn').addEventListener('click', resetRules);
+
+    /* 安全设置：修改管理口令 */
+    $('#pwdToggleBtn').addEventListener('click', function () {
+      $('#pwdForm').classList.toggle('hidden');
+    });
+    $('#pwdCancelBtn').addEventListener('click', function () {
+      $('#oldPass').value = ''; $('#newPass').value = ''; $('#newPass2').value = '';
+      $('#pwdForm').classList.add('hidden');
+    });
+    $('#pwdSaveBtn').addEventListener('click', changePassword);
 
     /* 事件委托：规则操作 + 后台审核 + 前台管理员直接回复 */
     document.addEventListener('click', function (e) {

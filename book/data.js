@@ -12,9 +12,13 @@
  * ========================================================================== */
 
 window.FEEDBACK_CONFIG = {
-  siteName: '产品反馈中心',
+  siteName: '回声 · 产品反馈中心',
   siteDesc: '每一条反馈都会被认真对待，时间轴记录产品成长的每一步',
-  adminPassword: '851985',       // 审核后台口令，可自行修改
+  /* 管理口令以「加盐 + SHA-256 迭代」哈希保存，源码中不含明文。
+     修改口令请登录后台「安全设置」操作，并导出数据永久保存。 */
+  adminPasswordHash: '093ab158a6c85d31ace1394f2ac0bd0d5606e00bf94a940c47edcf6eaba15ba0',
+  adminSalt: 'r7k2m9x4p6q1v8t3',
+  hashIterations: 1000,
   secretClicks: 5,                 // 连续点击「留言广场」几次进入隐藏的审核后台
   secretWindowMs: 2000,            // 连点有效时间窗（毫秒），超时重新计数
   adScoreThreshold: 2,             // 广告分 >= 该值自动拦截，转入后台审核队列

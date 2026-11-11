@@ -206,6 +206,24 @@
 
         <div id="rulesList" class="rules-table"></div>
       </div>
+
+      <div class="card security-card">
+        <div class="card-title">
+          <h3>安全设置</h3>
+          <button class="btn-mini" id="pwdToggleBtn" type="button">修改管理口令</button>
+        </div>
+        <div class="pwd-form hidden" id="pwdForm">
+          <div class="field-row">
+            <label class="field"><span>当前口令</span><input id="oldPass" type="password" autocomplete="new-password"></label>
+            <label class="field"><span>新口令 <i>至少 6 位</i></span><input id="newPass" type="password" autocomplete="new-password"></label>
+          </div>
+          <label class="field"><span>确认新口令</span><input id="newPass2" type="password" autocomplete="new-password"></label>
+          <div class="pwd-form-actions">
+            <button class="btn-mini ok" id="pwdSaveBtn" type="button">保存新口令</button>
+            <button class="btn-mini" id="pwdCancelBtn" type="button">取消</button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </main>

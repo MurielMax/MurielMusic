@@ -296,6 +296,13 @@ ul{padding-left:18px}
 .rule-item.editing{border-color:var(--primary);background:#f5f6ff}
 .rules-empty{grid-column:1/-1;text-align:center;color:var(--muted);font-size:12.5px;padding:22px 0}
 
+/* ===================== 安全设置 ===================== */
+.rules-card{margin-bottom:18px}
+.security-card{margin:0 0 36px}
+.pwd-form{border:1px dashed #cfd8ee;background:#fbfcff;border-radius:12px;padding:16px}
+.pwd-form .field{margin-bottom:12px}
+.pwd-form-actions{display:flex;gap:8px}
+
 /* ===================== 响应式 ===================== */
 @media(max-width:960px){
   .layout{grid-template-columns:1fr}
