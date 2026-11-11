@@ -303,6 +303,24 @@ ul{padding-left:18px}
 .pwd-form .field{margin-bottom:12px}
 .pwd-form-actions{display:flex;gap:8px}
 
+/* ===================== 初始化数据（危险操作） ===================== */
+.btn-init{color:#c63b40;border-color:#f6cccc}
+.btn-init:hover{background:#fdeeee}
+.btn-danger{background:var(--danger);color:#fff;box-shadow:0 6px 16px rgba(229,72,77,.28)}
+.btn-danger:hover{box-shadow:0 8px 20px rgba(229,72,77,.4)}
+.init-panel{margin:0 0 18px;border-color:#f6cccc;background:linear-gradient(180deg,#fff,#fffafa)}
+.init-panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.init-panel-head h3{font-size:16px;font-weight:700;color:#c63b40}
+.init-warn{
+  font-size:12.5px;line-height:1.8;color:#8a4144;background:#fff4f4;border:1px solid #f6d9d9;
+  border-radius:10px;padding:11px 13px;margin-bottom:14px;
+}
+.init-warn b{color:#c63b40}
+.init-warn span{color:#a06a6c}
+.init-form{display:flex;gap:10px;flex-wrap:wrap}
+.init-form input{flex:1;min-width:200px;border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;outline:none}
+.init-form input:focus{border-color:var(--danger);box-shadow:0 0 0 3px rgba(229,72,77,.12)}
+
 /* ===================== 响应式 ===================== */
 @media(max-width:960px){
   .layout{grid-template-columns:1fr}
@@ -324,6 +342,9 @@ ul{padding-left:18px}
   .admin-head{align-items:flex-start}
   .rule-threshold em{margin-left:0;width:100%}
   .rule-test input{min-width:100%}
+  .init-form input{min-width:100%;width:100%}
+  .init-form .btn{width:100%}
+  .admin-head-actions .btn{flex:1 1 45%}
   .timeline{padding-left:26px}
   .timeline::before{left:8px}
   .tl-date::before,.tl-dot{left:-22px}

@@ -124,9 +124,22 @@
         </div>
         <div class="admin-head-actions">
           <button class="btn btn-primary" id="exportBtn" type="button">导出数据</button>
-          <button class="btn btn-ghost" id="resetBtn" type="button">恢复初始数据</button>
+          <button class="btn btn-ghost btn-init" id="initBtn" type="button">初始化数据</button>
           <button class="btn btn-ghost" id="backBoardBtn" type="button">返回留言广场</button>
           <button class="btn btn-ghost" id="logoutBtn" type="button">退出登录</button>
+        </div>
+      </div>
+
+      <!-- 初始化数据：需管理员口令二次验证，确认后清空全部留言 -->
+      <div class="card init-panel hidden" id="initPanel">
+        <div class="init-panel-head">
+          <h3>初始化数据</h3>
+          <button class="btn-mini" id="initCancelBtn" type="button">取消</button>
+        </div>
+        <p class="init-warn"><b>危险操作：</b>将永久清空全部留言数据（含已发布、待审核、已拒绝的所有留言及官方回复），操作不可撤销。<span id="initCount"></span></p>
+        <div class="init-form">
+          <input id="initPass" type="password" autocomplete="new-password" placeholder="请输入管理员口令">
+          <button class="btn btn-danger" id="initConfirmBtn" type="button">确认初始化</button>
         </div>
       </div>
 

@@ -51,7 +51,9 @@
 
   /* ---------- 常量与工具 ---------- */
   var CFG = window.FEEDBACK_CONFIG || FALLBACK_CFG;
-  var INITIAL = (Array.isArray(window.FEEDBACK_DATA) && window.FEEDBACK_DATA.length)
+  /* 只要数据文件里是数组（哪怕为空）就以其为准。否则「初始化」清空全部留言后，
+     导出的空数组 data.js 重新加载时会被误判为「无数据」而回退到兜底演示留言。 */
+  var INITIAL = Array.isArray(window.FEEDBACK_DATA)
     ? window.FEEDBACK_DATA : FALLBACK_DATA;
   var RATE = CFG.rateLimit || { enabled: true, windowMs: 3600000, max: 3, ipApi: '' };
   var KEY = 'feedback_store_v1';
@@ -866,7 +868,7 @@
   function switchView(v) {
     state.view = v;
     state.secretClicks = [];
-    if (v === 'board') secretCooldownUntil = 0;
+    if (v === 'board') { secretCooldownUntil = 0; closeInitPanel(); }
     $('#viewBoard').classList.toggle('hidden', v !== 'board');
     $('#viewAdmin').classList.toggle('hidden', v !== 'admin');
     $('#viewHint').classList.toggle('hidden', v !== 'admin');
@@ -903,6 +905,7 @@
   function doLogout() {
     state.authed = false;
     $('#adminPass').value = '';
+    closeInitPanel();
     $('#adminPanel').classList.add('hidden');
     $('#loginPanel').classList.remove('hidden');
     render();
@@ -920,6 +923,36 @@
     $('#oldPass').value = ''; $('#newPass').value = ''; $('#newPass2').value = '';
     $('#pwdForm').classList.add('hidden');
     toast('管理口令已更新，导出数据可永久保存', 'ok');
+  }
+
+  /* ---------- 初始化数据：管理员口令二次验证，确认后清空全部留言 ---------- */
+  function openInitPanel() {
+    $('#initPass').value = '';
+    var n = state.data.length;
+    $('#initCount').textContent = n
+      ? '当前共 ' + n + ' 条留言，确认后将全部删除。'
+      : '当前没有留言数据。';
+    $('#initPanel').classList.remove('hidden');
+    $('#initPass').focus();
+  }
+  function closeInitPanel() {
+    $('#initPanel').classList.add('hidden');
+    $('#initPass').value = '';
+  }
+  function doInit() {
+    if (!checkPassword($('#initPass').value)) {
+      toast('管理员口令不正确，初始化已取消', 'err');
+      return;
+    }
+    var n = state.data.length;
+    state.data = [];          // 清空全部留言（含已发布 / 待审核 / 已拒绝 / 官方回复）
+    state.myIds = [];         // 清空「我提交的」关联记录
+    save();                   // 写入空数组：刷新后保持为空，不回退到初始 / 演示数据
+    sDel(RATE_KEY);           // 一并重置提交频率记录，额度恢复
+    closeInitPanel();
+    updateRateHint();
+    render();
+    toast('已初始化，清空全部 ' + n + ' 条留言', 'ok');
   }
 
   function init() {
@@ -996,7 +1029,7 @@
       else toast('发布成功，已出现在时间轴', 'ok');
     });
 
-    /* 后台登录 / 退出 / 返回前台 / 导出 / 重置 */
+    /* 后台登录 / 退出 / 返回前台 / 导出 / 初始化数据 */
     $('#loginBtn').addEventListener('click', doLogin);
     $('#adminPass').addEventListener('keydown', function (e) {
       if (e.key === 'Enter') doLogin();
@@ -1012,13 +1045,12 @@
       download('data.js', buildDataJS());
       toast('数据已导出', 'ok');
     });
-    $('#resetBtn').addEventListener('click', function () {
-      if (!confirm('确定恢复初始留言数据？当前新增与审核变更将被清除。')) return;
-      sDel(KEY); sDel(MY_KEY);
-      state.data = clone(INITIAL);
-      state.myIds = [];
-      render();
-      toast('已恢复初始数据', 'ok');
+    /* 初始化数据：先展开确认面板，校验管理员口令后才清空全部留言 */
+    $('#initBtn').addEventListener('click', openInitPanel);
+    $('#initCancelBtn').addEventListener('click', closeInitPanel);
+    $('#initConfirmBtn').addEventListener('click', doInit);
+    $('#initPass').addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') doInit();
     });
 
     /* 规则管理 */
