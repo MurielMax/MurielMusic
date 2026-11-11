@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muriel Music · Muriel 音乐</title>
+<title>Muriel音乐</title>
 <meta name="description" content="Muriel Music — a multi-source music player with zero dependencies, no backend, and Android 4.4 support.">
 <style>
 :root{
@@ -210,15 +210,15 @@ footer a:hover{color:var(--mint)}
   <div class="nav-in">
     <div class="brand">
       <span class="logo"><svg viewBox="0 0 24 24" fill="#04121a"><path d="M9 18V5l10-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm10-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg></span>
-      <span>Muriel Music</span>
+      <span>Muriel音乐</span>
     </div>
     <div class="nav-sp"></div>
-    <a class="btn gh" href="README.md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4zM4 9h16M9 9v11"/></svg><span data-zh="README" data-en="README">README</span></a>
+    <a class="btn gh" href="setLang('zh')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4zM4 9h16M9 9v11"/></svg><span data-zh="README" data-en="README">README</span></a>
     <div class="lang">
       <button id="b-zh" class="on" onclick="setLang('zh')">中文</button>
       <button id="b-en" onclick="setLang('en')">EN</button>
     </div>
-    <a class="btn primary" data-link="apkUrl" href="MurielMusic-v2.3.5-debug.apk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg><span data-zh="下载 APK" data-en="Get APK">下载 APK</span></a>
+    <a class="btn primary" data-link="apkUrl" href=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg><span data-zh="下载 APK" data-en="Get APK">下载 APK</span></a>
   </div>
 </nav>
 
@@ -380,8 +380,8 @@ gradle -Dorg.gradle.native=false assembleDebug</pre>
 <footer>
   <span id="footerVer">Muriel Music · {{version}} (build {{build}}) · {{pkg}}</span>
   <span class="nav-sp"></span>
-  <a href="https://github.com/MurielMax/MurielMusic/blob/main/README.md">README 中文</a>
-  <a href="https://github.com/MurielMax/MurielMusic/blob/main/README.en.md">README (EN)</a>
+  <a href="setLang('zh')">README 中文</a>
+  <a href="setLang('en')">README (EN)</a>
   <a href="#features" data-zh="回到功能" data-en="Back to features">回到功能</a>
 </footer>
 
