@@ -14,6 +14,7 @@
  *   - build 用整数比较，必须 > 当前 APK 的 versionCode 才会弹更新
  *   - 弹窗里只显示 version，不显示 build
  *   - force=true 时弹窗没有取消按钮，返回键只退出软件，下载完自动安装
+ *   - showCheckUpdate=true 时「我的 → 关于」才出现「检查更新」选项；缺省 / false 时不显示
  *   - links 缺失 / 为空 / 全部 show=false 时，「拓展」分类整个不显示
  *   - open: "inner" = App 内 WebView 打开；"outer" = 系统浏览器打开
  *
@@ -24,12 +25,14 @@
 
 
 window.MM_UPDATE = {
-  version: "2.4.5(build 146)",
-  build: 146,
-  notes: "1. 新增启动时检查更新\n2. 我的页新增拓展分类",
-  apkUrl: "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.4.0/Muriel.v2.4.0.apk",
-  force: false,
-  links: [
+  "version": "2.4.5(build 146)",
+  "build": 146,
+  "notes": "1. 新增启动时检查更新\n2. 我的页新增拓展分类",
+  "apkUrl": "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.4.0/Muriel.v2.4.0.apk",
+  "force": false,
+  "showCheckUpdate": true
+  ,
+  "links": [
     { name: "官方网站",   url: "https://murielmax.github.io/MurielMusic/",   show: true,  open: "inner" },
     { name: "问题反馈",   url: "https://murielmax.github.io/MurielMusic/book/", show: true,  open: "inner" }
   ]
