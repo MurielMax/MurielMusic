@@ -1,1 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>读取 .config 配置</title>
+</head>
+<body>
+    <h3>.config 文件内容：</h3>
+    <pre id="configContent">加载中...</pre>
+
+    <script>
+        // 同目录的配置文件
+        const configPath = './.config';
+
+        fetch(configPath)
+        .then(res => {
+            if (!res.ok) throw new Error("文件读取失败:" + res.status);
+            return res.text();
+        })
+        .then(text => {
+            document.getElementById('configContent').innerText = text;
+        })
+        .catch(err => {
+            document.getElementById('configContent').innerText = "读取出错：" + err.message;
+            console.error(err);
+        })
+    </script>
+</body>
+</html>
 
