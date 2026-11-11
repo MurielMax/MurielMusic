@@ -24,10 +24,10 @@
 
 
 window.MM_UPDATE = {
-  version: "2.4.1",
-  build: 144,
+  version: "2.4.2",
+  build: 145,
   notes: "1. 新增启动时检查更新\n2. 我的页新增拓展分类",
-  apkUrl: "https://example.com/MurielMusic-v2.5.0-debug.apk",
+  apkUrl: "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.4.0/Muriel.v2.4.0.apk",
   force: false,
   links: [
     { name: "官方网站",   url: "https://murielmax.github.io/MurielMusic/",   show: true,  open: "inner" },
