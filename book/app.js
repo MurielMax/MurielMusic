@@ -371,8 +371,10 @@
       el.textContent = '提交过于频繁，约 ' + mins + ' 分钟后可继续提交';
       if (btn) btn.disabled = true;
     } else {
-      el.className = 'rate-hint';
-      el.textContent = '1 小时内还可提交 ' + (s.max - s.used) + ' 条';
+      /* 主页不展示剩余额度：平时完全隐藏；仅在达到上限时告知原因，
+         避免提交按钮无故变灰却无任何说明。限流与到期自动恢复不受影响。 */
+      el.className = 'rate-hint hidden';
+      el.textContent = '';
       if (btn) btn.disabled = false;
     }
   }
