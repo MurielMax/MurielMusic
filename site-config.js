@@ -17,23 +17,23 @@
 window.MM_CONFIG = {
 
   /* —— 版本与构建（每次发版改这里） —— */
-  version: "2.4.0",            // 版本号：页面所有 vX.Y.Z 处
-  build:   143,                // versionCode：标签与页脚的「build N」
+  version: "2.4.5",            // 版本号：页面所有 vX.Y.Z 处
+  build:   151,                // versionCode：标签与页脚的「build N」
   pkg:     "com.muriel.music", // 应用包名：页脚展示
 
   /* —— 产物信息（展示用，升级时同步改） —— */
-  apkSize:   2.09,              // APK 大小（KB），仅文案展示
+  apkSize:   2.1.0,              // APK 大小（KB），仅文案展示
   javaFiles: 53,               // 主源码 Java 文件数：统计卡片
   tests:     "31/31",         // 离线单测通过情况：统计卡片 / 兼容性表
                                //   （实际已随版本增长，按你当前想对外展示的数填写）
 
   /* —— 下载链接（升级时改成新文件名 / 新地址） —— */
-  apkUrl: "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.4.0/Muriel.v2.4.0.apk", // APK 下载地址
-  srcUrl: "/",   // 源码包下载地址
+  apkUrl: "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.4.5/Muriel.v2.4.5.apk", // APK 下载地址
+  srcUrl: "",   // 源码包下载地址
 
   /* —— 文档与仓库链接（一般不改，留作扩展） —— */
-  readmeZh: "README.md",
-  readmeEn: "README.en.md",
+  readmeZh: "https://github.com/MurielMax/MurielMusic/blob/main/README.md",
+  readmeEn: "https://github.com/MurielMax/MurielMusic/blob/main/README.en.md",
   repoUrl:  "https://github.com/murielmax/MurielMusic",
   pagesUrl: "https://murielmax.github.io/MurielMusic/"
 
