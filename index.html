@@ -213,7 +213,7 @@ footer a:hover{color:var(--mint)}
       <span>Muriel音乐</span>
     </div>
     <div class="nav-sp"></div>
-    <a class="btn gh" href="setLang('zh')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4zM4 9h16M9 9v11"/></svg><span data-zh="README" data-en="README">README</span></a>
+    <a class="btn gh" href="{{readmeZh}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4zM4 9h16M9 9v11"/></svg><span data-zh="README" data-en="README">README</span></a>
     <div class="lang">
       <button id="b-zh" class="on" onclick="setLang('zh')">中文</button>
       <button id="b-en" onclick="setLang('en')">EN</button>
@@ -380,8 +380,8 @@ gradle -Dorg.gradle.native=false assembleDebug</pre>
 <footer>
   <span id="footerVer">Muriel Music · {{version}} (build {{build}}) · {{pkg}}</span>
   <span class="nav-sp"></span>
-  <a href="setLang('zh')">README 中文</a>
-  <a href="setLang('en')">README (EN)</a>
+  <a href="{{readmeZh}}">README 中文</a>
+  <a href="{{readmeEn}}">README (EN)</a>
   <a href="#features" data-zh="回到功能" data-en="Back to features">回到功能</a>
 </footer>
 
