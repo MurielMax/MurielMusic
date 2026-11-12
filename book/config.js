@@ -33,6 +33,7 @@ window.MM_UPDATE = {
   "apkUrl": "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.4.5/Muriel.v2.4.5.apk",
   "force": false,
   "showCheckUpdate": false,
+  "YMAppKey": "6af5d4256545637cd656d3d0",
   "links": [
     { name: "官方网站",   url: "https://murielmax.github.io/MurielMusic/",   show: true,  open: "outer" },
     { name: "问题反馈",   url: "https://murielmax.github.io/MurielMusic/book/", show: true,  open: "inner" }
