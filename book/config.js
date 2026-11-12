@@ -28,12 +28,11 @@
 
 window.MM_UPDATE = {
   "version": "2.4.5(build 151)",
-  "build": 152,
+  "build": 151,
   "notes": "★横竖屏切换不再丢失唱片状态；调整横屏唱盘大小；\n★新增：启动时检查更新；\n★新增：「我的」页面问题反馈入口；\n★新增：全局沉浸式状态栏，内容延伸到状态栏下、图标随皮肤变色；\n☆本次优化：连点版本 9 次的间隔放宽到 5 秒；\n★本次新增：珍珠皮肤播放器背景开关：开启后「海报淡主色 → 唱片下方淡白」竖向渐变，切歌自动换色；关闭即纯奶油白；\n☆优化：修复优化若干问题；\n直接覆盖安装即可（Android 4.4+，无需卸载）。",
   "apkUrl": "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.4.5/Muriel.v2.4.5.apk",
   "force": false,
-  "showCheckUpdate": true
-  ,
+  "showCheckUpdate": false,
   "links": [
     { name: "官方网站",   url: "https://murielmax.github.io/MurielMusic/",   show: true,  open: "outer" },
     { name: "问题反馈",   url: "https://murielmax.github.io/MurielMusic/book/", show: true,  open: "inner" }
