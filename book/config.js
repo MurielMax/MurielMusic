@@ -32,7 +32,7 @@ window.MM_UPDATE = {
   "notes": "★本地音乐扫描支持「指定扫描目录」；\n★扫描入库新增「过滤关键词」与「扫描文件后缀」；\n☆修复：选项按下高亮超出边框问题；\n☆修复：填完在线语音 Key 后不同步显示问题；\n☆修复：底部系统导航栏做成沉浸式",
   "apkUrl": "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.4.8/Muriel.v2.4.8.apk",
   "force": false,
-  "showCheckUpdate": false,
+  "showCheckUpdate": true,
   "YMAppKey": "6af5d4256545637cd656d3d0",
   "links": [
     { name: "官方网站",   url: "https://murielmax.github.io/MurielMusic/",   show: true,  open: "outer" },
