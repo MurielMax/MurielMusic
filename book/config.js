@@ -27,10 +27,10 @@
 
 
 window.MM_UPDATE = {
-  "version": "2.4.5(build 151)",
-  "build": 151,
-  "notes": "★横竖屏切换不再丢失唱片状态；调整横屏唱盘大小；\n★新增：启动时检查更新；\n★新增：「我的」页面问题反馈入口；\n★新增：全局沉浸式状态栏，内容延伸到状态栏下、图标随皮肤变色；\n☆本次优化：连点版本 9 次的间隔放宽到 5 秒；\n★本次新增：珍珠皮肤播放器背景开关：开启后「海报淡主色 → 唱片下方淡白」竖向渐变，切歌自动换色；关闭即纯奶油白；\n☆优化：修复优化若干问题；\n直接覆盖安装即可（Android 4.4+，无需卸载）。",
-  "apkUrl": "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.4.5/Muriel.v2.4.5.apk",
+  "version": "2.4.8(build 154)",
+  "build": 154,
+  "notes": "★本地音乐扫描支持「指定扫描目录」；\n★扫描入库新增「过滤关键词」与「扫描文件后缀」；\n☆修复：选项按下高亮超出边框问题；\n☆修复：填完在线语音 Key 后不同步显示问题；\n☆修复：底部系统导航栏做成沉浸式",
+  "apkUrl": "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.4.8/Muriel.v2.4.8.apk",
   "force": false,
   "showCheckUpdate": false,
   "YMAppKey": "6af5d4256545637cd656d3d0",
