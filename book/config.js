@@ -27,7 +27,7 @@
 
 
 window.MM_UPDATE = {
-  "version": "2.5.1(build 173)",
+  "version": "2.5.1(build 174)",
   "build": 174,
   "notes": "★重构新款媒体通知，支持灵动岛\n★增加对MusicFree自定义订阅源的支持\n★重构订阅歌单，更好的兼容性",
   "apkUrl": "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.5.1/Muriel.v2.5.1.apk",
