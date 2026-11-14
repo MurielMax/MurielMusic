@@ -36,7 +36,6 @@ window.MM_UPDATE = {
   "YMAppKey": "6af5d4256545637cd656d3d0",
   "links": [
     { name: "官方网站",   url: "https://murielmax.github.io/MurielMusic/",   show: true,  open: "outer" },
-    { name: "问题反馈",   url: "mqqwpa://im/chat?chat_type=group&uin=631671695&version=1&src_type=web
-", show: true,  open: "outer" }
+    { name: "问题反馈",   url: "mqqwpa://im/chat?chat_type=group&uin=631671695&version=1&src_type=web", show: true,  open: "outer" }
   ]
 };
