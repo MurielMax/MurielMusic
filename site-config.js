@@ -18,7 +18,7 @@ window.MM_CONFIG = {
 
   /* —— 版本与构建（每次发版改这里） —— */
   version: "2.5.1",            // 版本号：页面所有 vX.Y.Z 处
-  build:   173,                // versionCode：标签与页脚的「build N」
+  build:   174,                // versionCode：标签与页脚的「build N」
   pkg:     "com.muriel.music", // 应用包名：页脚展示
 
   /* —— 产物信息（展示用，升级时同步改） —— */
