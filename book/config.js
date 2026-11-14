@@ -36,6 +36,7 @@ window.MM_UPDATE = {
   "YMAppKey": "6af5d4256545637cd656d3d0",
   "links": [
     { name: "官方网站",   url: "https://murielmax.github.io/MurielMusic/",   show: true,  open: "outer" },
-    { name: "问题反馈",   url: "https://qun.qq.com/universal-share/share?ac=1&authKey=iceP8INh8nNeiEkRVl62hoZ6X6C4IDYz2Bn6H4p36Uxaou4xAnV7Hob5ghQzPRXa&busi_data=eyJncm91cENvZGUiOiI2MzE2NzE2OTUiLCJ0b2tlbiI6ImZIN0FDRmpNRUcvdzhrdHVQTTVuTW96dnpDRy85UjhSNStselBFRzlpUXBTY01kbU1mbys3aVFxNW1YWmt3NHoiLCJ1aW4iOiIyODMxMzI2OTI4In0%3D&data=NmRsI9xDyj-NK6ntU-FcgeaB9hn779r8PYFi9YsTnQfX_-uAyEGdeTDsv63IDuTLsTtT-f34KwGNiHyJ00TYLQ&svctype=4&tempid=h5_group_info", show: true,  open: "inner" }
+    { name: "问题反馈",   url: "mqqwpa://im/chat?chat_type=group&uin=631671695&version=1&src_type=web
+", show: true,  open: "outer" }
   ]
 };
