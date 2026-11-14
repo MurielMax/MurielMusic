@@ -27,10 +27,10 @@
 
 
 window.MM_UPDATE = {
-  "version": "2.5.0(build 164)",
-  "build": 164,
-  "notes": "增加本地音乐入库分类",
-  "apkUrl": "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.5.0/MurielMusic-v2.5.0.apk",
+  "version": "2.5.1(build 173)",
+  "build": 173,
+  "notes": "★重构新款媒体通知，支持灵动岛\n★增加对MusicFree自定义订阅源的支持\n★重构订阅歌单，更好的兼容性",
+  "apkUrl": "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.5.1/Muriel.v2.5.1.apk",
   "force": false,
   "showCheckUpdate": true,
   "YMAppKey": "6af5d4256545637cd656d3d0",
