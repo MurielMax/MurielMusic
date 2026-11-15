@@ -17,8 +17,8 @@
 window.MM_CONFIG = {
 
   /* —— 版本与构建（每次发版改这里） —— */
-  version: "2.5.1",            // 版本号：页面所有 vX.Y.Z 处
-  build:   174,                // versionCode：标签与页脚的「build N」
+  version: "2.5.2",            // 版本号：页面所有 vX.Y.Z 处
+  build:   178,                // versionCode：标签与页脚的「build N」
   pkg:     "com.muriel.music", // 应用包名：页脚展示
 
   /* —— 产物信息（展示用，升级时同步改） —— */
@@ -28,7 +28,7 @@ window.MM_CONFIG = {
                                //   （实际已随版本增长，按你当前想对外展示的数填写）
 
   /* —— 下载链接（升级时改成新文件名 / 新地址） —— */
-  apkUrl: "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.5.1/Muriel.v2.5.1.apk", // APK 下载地址
+  apkUrl: "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.5.2/Muriel.v2.5.2.apk", // APK 下载地址
   srcUrl: "",   // 源码包下载地址
 
   /* —— 文档与仓库链接（一般不改，留作扩展） —— */
