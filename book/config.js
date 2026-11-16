@@ -27,10 +27,10 @@
 
 
 window.MM_UPDATE = {
-  "version": "2.5.2(build 178)",
-  "build": 178,
+  "version": "2.5.2(build 181)",
+  "build": 181,
   "notes": "部分功能优化",
-  "apkUrl": "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.5.2/Muriel.v2.5.2.apk",
+  "apkUrl": "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.5.2/MurielMusic-v2.5.2.apk",
   "force": false,
   "showCheckUpdate": false,
   "YMAppKey": "6af5d4256545637cd656d3d0",
