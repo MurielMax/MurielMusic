@@ -30,7 +30,7 @@ window.MM_UPDATE = {
   "version": "2.5.12(build 196)",
   "build": 196,
   "notes": "1，新增横屏无极拖拽可调布局\n2，对已知问题进行修复优化",
-  "apkUrl": "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.5.12/Muriel._2.5.12.apk",
+  "apkUrl": "https://v6.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.5.12/Muriel._2.5.12.apk",
   "force": false,
   "showCheckUpdate": false,
   "YMAppKey": "6af5d4256545637cd656d3d0",
