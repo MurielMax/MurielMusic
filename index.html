@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muriel音乐</title>
+<title>Muriel Music · Muriel 音乐</title>
 <meta name="description" content="Muriel Music — a multi-source music player with zero dependencies, no backend, and Android 4.4 support.">
 <style>
 :root{
@@ -210,15 +210,15 @@ footer a:hover{color:var(--mint)}
   <div class="nav-in">
     <div class="brand">
       <span class="logo"><svg viewBox="0 0 24 24" fill="#04121a"><path d="M9 18V5l10-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm10-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg></span>
-      <span>Muriel音乐</span>
+      <span>Muriel Music</span>
     </div>
     <div class="nav-sp"></div>
-    <a class="btn gh" href="{{readmeZh}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4zM4 9h16M9 9v11"/></svg><span data-zh="README" data-en="README">README</span></a>
+    <a class="btn gh" href="README.md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4zM4 9h16M9 9v11"/></svg><span data-zh="README" data-en="README">README</span></a>
     <div class="lang">
       <button id="b-zh" class="on" onclick="setLang('zh')">中文</button>
       <button id="b-en" onclick="setLang('en')">EN</button>
     </div>
-    <a class="btn primary" data-link="apkUrl" href=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg><span data-zh="下载 APK" data-en="Get APK">下载 APK</span></a>
+    <a class="btn primary" data-link="apkUrl" href="MurielMusic-v2.5.0-release.apk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg><span data-zh="下载 APK" data-en="Get APK">下载 APK</span></a>
   </div>
 </nav>
 
@@ -236,7 +236,7 @@ footer a:hover{color:var(--mint)}
       <h1><span class="g" data-zh="音乐，不必" data-en="Music, without">音乐，不必</span><br><span data-zh="依赖任何东西。" data-en="depending on anything.">依赖任何东西。</span></h1>
       <p class="lead"><span data-zh="一款纯 Android 原生 API 打造的多音源播放器。" data-en="A multi-source player built purely on Android platform APIs. ">一款纯 Android 原生 API 打造的多音源播放器。</span><b><span data-zh="搜索、直链解析、歌词、封面、节奏分析全部在 App 内完成" data-en="Search, stream resolution, lyrics, artwork, and beat analysis all happen inside the app">搜索、直链解析、歌词、封面、节奏分析全部在 App 内完成</span></b><span data-zh="，不需要服务器、不需要账号、不上传任何数据 —— 从 Android 4.4 一路跑到最新系统。" data-en=" — no server, no account, no data leaving the device, from Android 4.4 to current releases.">，不需要服务器、不需要账号、不上传任何数据 —— 从 Android 4.4 一路跑到最新系统。</span></p>
       <div class="cta">
-        <a class="btn primary" data-link="apkUrl" href="MurielMusic-v2.3.5-debug.apk"><span data-zh="下载 {{version}} APK · ~{{apkSize}} MB" data-en="Download {{version}} APK · ~{{apkSize}} MB">下载 {{version}} APK · ~{{apkSize}} MB</span></a>
+        <a class="btn primary" data-link="apkUrl" href="MurielMusic-v2.5.0-release.apk"><span data-zh="下载 {{version}} APK · ~{{apkSize}} MB" data-en="Download {{version}} APK · ~{{apkSize}} MB">下载 {{version}} APK · ~{{apkSize}} MB</span></a>
         <a class="btn" href="#features"><span data-zh="查看功能" data-en="Explore features">查看功能</span> →</a>
       </div>
     </div>
@@ -334,23 +334,24 @@ footer a:hover{color:var(--mint)}
       </tr></thead>
       <tbody>
         <tr><td data-zh="最低系统" data-en="Minimum OS">最低系统</td><td>Android 4.4 · API 19</td><td data-zh="TLS 1.2、本地 HTTPS 代理、旧式通知、全 PNG 图标等 4.4 专用分支完整保留" data-en="Legacy branches kept intact: TLS 1.2, local HTTPS proxy, legacy notifications, all-PNG icons">TLS 1.2、本地 HTTPS 代理、旧式通知、全 PNG 图标等 4.4 专用分支完整保留</td></tr>
+        <tr><td data-zh="4.2 兼容版" data-en="Compatible build for 4.2">4.2 兼容版</td><td data-zh="Android 4.2 · API 17" data-en="Android 4.2 · API 17">Android 4.2 · API 17</td><td data-zh="另提供 mini 兼容版 {{miniVersion}}（build {{miniBuild}}），功能与主线一致，仅自定义脚本音源在 4.2 降级；见下方「Android 4.2 兼容版」" data-en="A separate mini build {{miniVersion}} (build {{miniBuild}}) offers the same features; only custom script sources are downgraded on 4.2 — see “Android 4.2 compatible build” below">另提供 mini 兼容版 {{miniVersion}}（build {{miniBuild}}），功能与主线一致，仅自定义脚本音源在 4.2 降级；见下方「Android 4.2 兼容版」</td></tr>
         <tr><td data-zh="目标 SDK" data-en="targetSdk">目标 SDK</td><td>24</td><td data-zh="刻意保留：Android 14 要求 ≥23、15/16 要求 ≥24，24 刚好满足安装下限" data-en="Deliberate: Android 14 requires ≥23, 15/16 require ≥24; 24 sits exactly on the install floor">刻意保留：Android 14 要求 ≥23、15/16 要求 ≥24，24 刚好满足安装下限</td></tr>
         <tr><td data-zh="安装上限" data-en="Installable up to">安装上限</td><td data-zh="Android 16 · API 36" data-en="Android 16 · API 36">Android 16 · API 36</td><td data-zh="24 恰好满足 15/16 的安装门槛；不提交应用商店，故不受上架 target API 政策约束" data-en="24 meets the 15/16 floor; not distributed via an app store, so store target-API rules do not apply">24 恰好满足 15/16 的安装门槛；不提交应用商店，故不受上架 target API 政策约束</td></tr>
         <tr><td data-zh="明文流量" data-en="Cleartext traffic">明文流量</td><td class="tag-ok" data-zh="已放行" data-en="Permitted">已放行</td><td data-zh="usesCleartextTraffic=true，第三方音源的 HTTP 端点可正常访问" data-en="usesCleartextTraffic=true so third-party HTTP endpoints remain reachable">usesCleartextTraffic=true，第三方音源的 HTTP 端点可正常访问</td></tr>
         <tr><td data-zh="为何不升级" data-en="Why not raise it">为何不升级</td><td class="tag-no" data-zh="26+ / 31+ 限制" data-en="26+ / 31+ limits">26+ / 31+ 限制</td><td data-zh="26+ 触发后台服务限制，31+ 触发 PendingIntent 可变性 flag 与后台前台服务限制，会打断线控 / 车机 / 开机自启" data-en="26+ triggers background service limits; 31+ triggers PendingIntent mutability flags and background FGS limits, breaking media keys / car launchers / boot auto-play">26+ 触发后台服务限制，31+ 触发 PendingIntent 可变性 flag 与后台前台服务限制，会打断线控 / 车机 / 开机自启</td></tr>
-        <tr><td data-zh="质量" data-en="Quality">质量</td><td class="tag-ok" data-zh="lint 0 Error / 0 Fatal" data-en="lint 0 Error / 0 Fatal">lint 0 Error / 0 Fatal</td><td data-zh="全量 javac 通过，离线单测 31/31；构建产物为 debug 签名" data-en="Full javac pass, 31/31 offline tests; build is debug-signed">全量 javac 通过，离线单测 31/31；构建产物为 debug 签名</td></tr>
+        <tr><td data-zh="质量" data-en="Quality">质量</td><td class="tag-ok" data-zh="lint 0 Error / 0 Fatal" data-en="lint 0 Error / 0 Fatal">lint 0 Error / 0 Fatal</td><td data-zh="全量 javac 通过，离线单测 47/47；构建产物为 debug 签名" data-en="Full javac pass, 47/47 offline tests; build is debug-signed">全量 javac 通过，离线单测 47/47；构建产物为 debug 签名</td></tr>
       </tbody>
     </table>
   </div>
 </section>
-<!--
+
 <section>
   <div class="eyebrow" data-zh="开始使用 · Get started" data-en="Get started">开始使用 · Get started</div>
   <h2 data-zh="两种方式，都是装上就用" data-en="Two ways in, both ready to play">两种方式，都是装上就用</h2>
   <div class="two">
     <div class="pane">
       <h3 data-zh="① 直接安装" data-en="① Install the APK">① 直接安装</h3>
-      <p data-zh="下载 {{version}} debug 包（约 {{apkSize}} MB），在 Android 4.4+ 设备安装。首次启动需阅读并同意《学习免责协议》，之后可在「我的 · 关于」复查。" data-en="Download the {{version}} debug build (~{{apkSize}} KB) and install on Android 4.4+. The first launch asks you to accept the Study Disclaimer, reviewable later under Mine · About.">下载 {{version}} debug 包（约 {{apkSize}} KB），在 Android 4.4+ 设备安装。首次启动需阅读并同意《学习免责协议》，之后可在「我的 · 关于」复查。</p>
+      <p data-zh="下载 {{version}} debug 包（约 {{apkSize}} MB），在 Android 4.4+ 设备安装。首次启动需阅读并同意《学习免责协议》，之后可在「我的 · 关于」复查。" data-en="Download the {{version}} debug build (~{{apkSize}} MB) and install on Android 4.4+. The first launch asks you to accept the Study Disclaimer, reviewable later under Mine · About.">下载 {{version}} debug 包（约 {{apkSize}} MB），在 Android 4.4+ 设备安装。首次启动需阅读并同意《学习免责协议》，之后可在「我的 · 关于」复查。</p>
       <div class="dl-row">
         <a class="btn" data-link="srcUrl"><span data-zh="下载源码包 {{srcUrl}}" data-en="Source package {{srcUrl}}">下载源码包 {{srcUrl}}</span></a>
       </div>
@@ -370,7 +371,46 @@ gradle -Dorg.gradle.native=false assembleDebug</pre>
     </div>
   </div>
 </section>
--->
+
+<section id="compat">
+  <div class="eyebrow" data-zh="Android 4.2 兼容版 · Legacy build" data-en="Android 4.2 compatible build · Legacy build">Android 4.2 兼容版 · Legacy build</div>
+  <h2 data-zh="老车机 / 旧设备？用兼容版" data-en="Old car head unit or device? Use the compatible build">老车机 / 旧设备？用兼容版</h2>
+  <p class="lead" data-zh="主线最低 Android 4.4（API 19）。兼容版（mini）把下限降到 Android 4.2（API 17/18），功能与主线 {{miniVersion}} 全量一致，仅对低版本系统做必要降级 —— 同包名、同签名、覆盖安装即可，无需卸载。"
+     data-en="The main build needs Android 4.4 (API 19) at minimum. The compatible (mini) build lowers the floor to Android 4.2 (API 17/18) with the full {{miniVersion}} feature set, applying only the downgrades required by old systems — same package and signature, install over the current version without uninstalling.">主线最低 Android 4.4（API 19）。兼容版（mini）把下限降到 Android 4.2（API 17/18），功能与主线 {{miniVersion}} 全量一致，仅对低版本系统做必要降级 —— 同包名、同签名、覆盖安装即可，无需卸载。</p>
+  <div class="two">
+    <div class="pane">
+      <h3 data-zh="① 功能与降级说明" data-en="① Features & downgrades">① 功能与降级说明</h3>
+      <p data-zh="兼容版与主线功能完全一致：多音源搜索 / 直链解析 / 歌词 / 封面 / 节奏律动、本地全盘扫描、下载、横屏无级分栏、悬浮窗、四套皮肤等全部保留。仅针对 Android 4.2 做 4 项必要降级："
+         data-en="Identical features to the main build: multi-source search, stream resolution, lyrics, artwork, beat visualiser, full-device scan, downloads, drag-to-resize landscape split, floating player, four skins — all kept. Only 4 downgrades for Android 4.2:">兼容版与主线功能完全一致：多音源搜索 / 直链解析 / 歌词 / 封面 / 节奏律动、本地全盘扫描、下载、横屏无级分栏、悬浮窗、四套皮肤等全部保留。仅针对 Android 4.2 做 4 项必要降级：</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr>
+            <th data-zh="降级项" data-en="Downgrade">降级项</th>
+            <th data-zh="说明" data-en="Note">说明</th>
+          </tr></thead>
+          <tbody>
+            <tr><td data-zh="最低系统" data-en="Minimum OS">最低系统</td><td data-zh="minSdk 17（Android 4.2），目标 SDK 仍为 24" data-en="minSdk 17 (Android 4.2); target SDK stays 24">minSdk 17（Android 4.2），目标 SDK 仍为 24</td></tr>
+            <tr><td data-zh="自定义脚本音源" data-en="Custom script sources">自定义脚本音源</td><td data-zh="evaluateJavascript 需 API 19+，在 4.2 上自动降级为内置音源；QQ/网易/酷狗/B站与本地音乐完整可用" data-en="evaluateJavascript needs API 19+; on 4.2 it falls back to built-in sources. QQ / NetEase / Kugou / Bilibili and local music stay fully usable">evaluateJavascript 需 API 19+，在 4.2 上自动降级为内置音源；QQ/网易/酷狗/B站与本地音乐完整可用</td></tr>
+            <tr><td data-zh="独立更新通道" data-en="Separate update channel">独立更新通道</td><td data-zh="使用 config-mini.js，与主线更新互不干扰，不会被误推主线包" data-en="Uses config-mini.js so updates never cross over — no accidental main-build push">使用 config-mini.js，与主线更新互不干扰，不会被误推主线包</td></tr>
+            <tr><td data-zh="系统 API 兜底" data-en="System API guards">系统 API 兜底</td><td data-zh="低版本上新增系统能力均带版本守卫 / try-catch 静默降级，不影响启动与播放" data-en="Newer system APIs are version-guarded / silently downgraded in try-catch, so startup and playback are unaffected">低版本上新增系统能力均带版本守卫 / try-catch 静默降级，不影响启动与播放</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="pane">
+      <h3 data-zh="② 下载兼容版" data-en="② Download the compatible build">② 下载兼容版</h3>
+      <p data-zh="兼容版 {{miniVersion}}（build {{miniBuild}}，约 {{miniApkSize}} MB），适用于 Android 4.2 及以上设备。与主线同包名同签名，直接覆盖安装即可。"
+         data-en="Compatible build {{miniVersion}} (build {{miniBuild}}, ~{{miniApkSize}} MB) for Android 4.2 and above. Same package and signature as the main build — install over it directly.">兼容版 {{miniVersion}}（build {{miniBuild}}，约 {{miniApkSize}} MB），适用于 Android 4.2 及以上设备。与主线同包名同签名，直接覆盖安装即可。</p>
+      <div class="dl-row">
+        <a class="btn primary" data-link="miniApkUrl" href="MurielMusic-v2.5.12-mini-release.apk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg><span data-zh="下载兼容版 APK" data-en="Get compatible APK">下载兼容版 APK</span></a>
+        <a class="btn" data-link="miniSrcUrl"><span data-zh="下载兼容版源码包" data-en="Compatible source package">下载兼容版源码包</span></a>
+      </div>
+      <div class="note"><b data-zh="如何选择：" data-en="Which to pick: ">如何选择：</b><span data-zh="设备为 Android 4.4+ 用主线版（更新更及时）；Android 4.2/4.3 或老车机用本兼容版。两者功能一致，可随时互相覆盖安装、数据不丢。"
+         data-en="Android 4.4+ → main build (updates sooner); Android 4.2/4.3 or old car units → this compatible build. Features are identical; you can overwrite either with the other anytime without losing data.">设备为 Android 4.4+ 用主线版（更新更及时）；Android 4.2/4.3 或老车机用本兼容版。两者功能一致，可随时互相覆盖安装、数据不丢。</span></div>
+    </div>
+  </div>
+</section>
+
 <div class="disc">
   <h3 data-zh="⚠️ 仅供个人学习研究使用" data-en="⚠️ For personal study and research only">⚠️ 仅供个人学习研究使用</h3>
   <p data-zh="本软件为学习 Android 原生开发而编写的非商业自用作品。音乐、歌词、封面等内容均来自第三方公开网络接口，版权归原权利人所有；本软件不存储、不上传任何音频，收藏 / 历史 / 订阅 / 下载等数据仅保存在本机，卸载即清空。请勿用于商业用途或大批量分发，作者不对第三方接口的可用性与内容合法性承担责任。"
@@ -380,8 +420,8 @@ gradle -Dorg.gradle.native=false assembleDebug</pre>
 <footer>
   <span id="footerVer">Muriel Music · {{version}} (build {{build}}) · {{pkg}}</span>
   <span class="nav-sp"></span>
-  <a href="{{readmeZh}}">README 中文</a>
-  <a href="{{readmeEn}}">README (EN)</a>
+  <a href="README.md">README 中文</a>
+  <a href="README.en.md">README (EN)</a>
   <a href="#features" data-zh="回到功能" data-en="Back to features">回到功能</a>
 </footer>
 
