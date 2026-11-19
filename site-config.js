@@ -28,7 +28,8 @@ window.MM_CONFIG = {
                                //   （实际已随版本增长，按你当前想对外展示的数填写）
 
   /* —— 下载链接（升级时改成新文件名 / 新地址） —— */
-  apkUrl: "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.5.12/Muriel._2.5.12.apk", // APK 下载地址
+  apkUrl: "https://v6.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.5.12/Muriel._2.5.12.apk", // APK 下载地址
+  apkUrl_mini: "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.5.12/Muriel._2.5.12-mini.apk", // APK 下载地址
   srcUrl: "",   // 源码包下载地址
 
   /* —— 文档与仓库链接（一般不改，留作扩展） —— */
