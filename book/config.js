@@ -27,10 +27,10 @@
 
 
 window.MM_UPDATE = {
-  "version": "2.5.12(build 196)",
-  "build": 196,
-  "notes": "1，新增横屏无极拖拽可调布局\n2，对已知问题进行修复优化",
-  "apkUrl": "https://v6.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.5.12/Muriel._2.5.12.apk",
+  "version": "2.5.16",
+  "build": 200,
+  "notes": "[新增]「我的 → 关于」新增「更新记录」时间轴，离线也能查看近期的更新内容。\n[新增]设为来电铃声：长按本地歌曲即可设为系统默认来电铃声，在线歌曲需先下载。\n[优化]「屏幕常亮」升级为「亮屏时长」：可选跟随系统/30秒/1分/3分/5分/自定义/常亮；仅在播放时生效，触摸可续亮，到时自动熄灭。\n[新增]设为闹钟铃声：长按本地歌曲即可设为系统默认闹钟铃声，在线歌曲需先下载。",
+  "apkUrl": "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.5.16/Muriel._2.5.16.apk",
   "force": false,
   "showCheckUpdate": false,
   "YMAppKey": "6af5d4256545637cd656d3d0",
