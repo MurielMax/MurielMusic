@@ -17,18 +17,18 @@
 window.MM_CONFIG = {
 
   /* —— 版本与构建（每次发版改这里） —— */
-  version: "2.5.16",            // 版本号：页面所有 vX.Y.Z 处（v2.3.14 已回退未发布，跳过）
-  build:   200,                // versionCode：标签与页脚的「build N」（v2.5.0 下载链路修复 + 弹窗配色 + 网易云/酷我歌单直连）
+  version: "2.5.20",            // 版本号：页面所有 vX.Y.Z 处（v2.3.14 已回退未发布，跳过）
+  build:   207,                // versionCode：标签与页脚的「build N」（v2.5.0 下载链路修复 + 弹窗配色 + 网易云/酷我歌单直连）
   pkg:     "com.muriel.music", // 应用包名：页脚展示
 
   /* —— 产物信息（展示用，升级时同步改） —— */
-  apkSize:   1.50,            // APK 大小（MB），仅文案展示（v2.5.0 正式版 ≈ 1.37 MB）
+  apkSize:   1.51,            // APK 大小（MB），仅文案展示（v2.5.0 正式版 ≈ 1.37 MB）
   javaFiles: 69,              // 主源码 Java 文件数：统计卡片（v2.4.9 新增 LocalCats）
   tests:     "164/164",       // 离线 JVM 单测：local_cats 45 + asr 21 + nav 44 + scan 28 + umeng 26
                                //   （实际已随版本增长，按你当前想对外展示的数填写）
 
   /* —— 下载链接（升级时改成新文件名 / 新地址） —— */
-  apkUrl: "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.5.16/Muriel._2.5.16.apk", // APK 下载地址
+  apkUrl: "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.5.20/Muriel._2.5.20.apk", // APK 下载地址
   srcUrl: "",     // 源码包下载地址
 
   /* —— Android 4.2 兼容版（mini）：与主线功能一致，minSdk 17，走过时设备 —— */
