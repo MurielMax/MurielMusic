@@ -27,10 +27,10 @@
 
 
 window.MM_UPDATE = {
-  "version": "2.5.20",
-  "build": 207,
-  "notes": "[修复]更新修复酷狗音源，支持VIP歌曲\n[优化]优化切歌响应速度\n[优化]重构播放兜底逻辑，新增播放兜底模式",
-  "apkUrl": "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.5.20/Muriel._2.5.20.apk",
+  "version": "2.5.21",
+  "build": 208,
+  "notes": "[优化]优化歌词调整更换记忆\n[新增]竖屏播放器在唱片与律动频谱之间新增三行歌词显示",
+  "apkUrl": "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.5.21/Muriel._2.5.21.apk",
   "force": false,
   "showCheckUpdate": false,
   "YMAppKey": "6af5d4256545637cd656d3d0",
