@@ -32,10 +32,10 @@ window.MM_CONFIG = {
   srcUrl: "",     // 源码包下载地址
 
   /* —— Android 4.2 兼容版（mini）：与主线功能一致，minSdk 17，走过时设备 —— */
-  miniVersion: "2.5.12-mini",                          // 兼容版版本号（与主线 2.5.12 同步）
-  miniBuild:   196,                                    // 兼容版 versionCode（与主线对齐，覆盖安装）
+  miniVersion: "2.5.21-mini",                          // 兼容版版本号（与主线 2.5.12 同步）
+  miniBuild:   208,                                    // 兼容版 versionCode（与主线对齐，覆盖安装）
   miniApkSize: 1.50,                                   // 兼容版 APK 大小（MB），仅文案展示
-  miniApkUrl:  "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.5.12/Muriel._2.5.12-mini.apk", // 兼容版 APK 下载地址
+  miniApkUrl:  "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.5.21/Muriel._2.5.21-mini.apk", // 兼容版 APK 下载地址
   miniSrcUrl:  "",     // 兼容版源码包地址
 
   /* —— 文档与仓库链接（一般不改，留作扩展） —— */
