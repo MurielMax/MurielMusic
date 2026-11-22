@@ -28,7 +28,7 @@
 
 window.MM_UPDATE = {
   "version": "2.5.21-mini",
-  "build": 209,
+  "build": 208,
   "notes": "[优化]同步主线优化\n[优化]优化歌词调整更换记忆\n[新增]竖屏播放器在唱片与律动频谱之间新增三行歌词显示",
   "apkUrl": "https://v4.gh-proxy.org/https://github.com/MurielMax/MurielMusic/releases/download/Muriel%E9%9F%B3%E4%B9%90v2.5.21/Muriel._2.5.21-mini.apk",
   "force": false,
